@@ -1,0 +1,23 @@
+﻿  solutions.cpp
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(27,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(276,44): warning C4018: “<=”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(279,14): warning C4018: “<=”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(323,14): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(347,17): warning C4018: “<=”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(352,14): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(391,10): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(400,12): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(409,39): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(580,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(592,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(619,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(677,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(712,15): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(716,26): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(738,29): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(739,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(743,15): warning C4018: “>=”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(744,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(751,21): warning C4018: “<”: 有符号/无符号不匹配
+E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\solutions.cpp(765,21): warning C4018: “<”: 有符号/无符号不匹配
+  Leetcode.vcxproj -> E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\Debug\Leetcode.exe
