@@ -1,0 +1,7 @@
+#pragma once
+
+
+solutions.cpp
+347. Top K Frequent Elements
+	1.myGreater can not be declared with class, but it's ok to use struct.Why?
+

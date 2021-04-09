@@ -1,9 +1,14 @@
 #include<iostream>
 #include <chrono>
 #include "solutions.h"
-
+#include "other.h"
 using namespace std;
+#pragma region Leetcode
+
 #pragma region 1.Two sum
+namespace Leetcode {
+
+
 int test1() {
 	printf("\n\n###############  start testing 1 Two sum  #############\n");
 	vector<int> input = { 2,5,5,11 };
@@ -53,7 +58,7 @@ void test2() {
 void test3() {
 	printf("\n\n###############  start testing 3 Longest Substring Without Repeating Characters  #############\n");
 	auto start = std::chrono::steady_clock::now();
-	
+
 	string s = "roaltvbglbfcvbcaoumtwpisrqjuiuxzizkcvnkirrmmuooikbdgqlbkbmgmgdlodysancketytnmhxziahbninrwtd";
 	int a = lengthOfLongestSubstring(s);
 
@@ -85,7 +90,7 @@ void test6() {
 	auto start = std::chrono::steady_clock::now();
 
 	string s = "PAYPALISHIRING";int numRows = 4;
-	string a = convert(s,numRows);
+	string a = convert(s, numRows);
 	auto end = std::chrono::steady_clock::now();
 	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
 	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
@@ -136,12 +141,12 @@ void test9() {
 #pragma endregion
 #pragma region 10. Regular Expression Matching
 void test10() {
-	cout<<"###############  start testing 10. Regular Expression Matching  #############"<<endl;
+	cout << "###############  start testing 10. Regular Expression Matching  #############" << endl;
 	auto start = std::chrono::steady_clock::now();
 
 	string  s = "aaa";
 	string  p = "a*a";
-	bool a =isMatch(s, p);
+	bool a = isMatch(s, p);
 
 	auto end = std::chrono::steady_clock::now();
 	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
@@ -167,7 +172,7 @@ void test14() {
 	//cout<<"###############  start testing 11.Container With Most Water  #############"<<endl;
 	auto start = std::chrono::steady_clock::now();
 
-	vector<string>  h = {"ab", "a" };
+	vector<string>  h = { "ab", "a" };
 	string a = longestCommonPrefix(h);
 
 	auto end = std::chrono::steady_clock::now();
@@ -188,22 +193,110 @@ void test15() {
 	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
 }
 #pragma endregion
+#pragma region 17. Letter Combinations of a Phone Number
+void test17() {
+	//cout<<"###############  start testing 17. Letter Combinations of a Phone Number  #############"<<endl;
+	auto start = std::chrono::steady_clock::now();
 
+	string  h = "23";
+	vector<string> a = letterCombinations(h);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+}
+#pragma endregion
+
+#pragma region 19.Remove Nth Node From End of List
+void test19() {
+	//cout<<"###############  start testing 19.Remove Nth Node From End of List #############"<<endl;
+	auto start = std::chrono::steady_clock::now();
+
+	// easy, no test
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+}
+#pragma endregion
+
+#pragma region 21. Merge Two Sorted Lists
+void test21() {
+	//cout<<"###############  start testing 21. Merge Two Sorted Lists #############"<<endl;
+	auto start = std::chrono::steady_clock::now();
+
+	int nums1[] = { 2,4 };
+	int nums2[] = { 1,3,4 };
+	int len1 = sizeof(nums1) / sizeof(nums1[0]);
+	int len2 = sizeof(nums2) / sizeof(nums2[0]);
+	struct ListNode* l1 = create_ListNode_from_array(nums1, len1);
+	struct ListNode* l2 = create_ListNode_from_array(nums2, len2);
+
+	ListNode* a = mergeTwoLists(l1, l2);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+}
+#pragma endregion
+#pragma region 347. Top K Frequent Elements
+void test347() {
+	//cout<<"###############  start testing 347. Top K Frequent Elements #############"<<endl;
+	auto start = std::chrono::steady_clock::now();
+
+	vector<int> h = { 1,1,1,2,2,3 };
+
+	vector<int> a = topKFrequent(h, 2);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+}
+#pragma endregion
+
+
+}
+#pragma endregion
+
+
+#pragma region Other
+namespace Other{
+
+#pragma region 1. allArrangement
+	void test1() {
+		cout<<"###############  start testing 1. allArrangement #############"<<endl;
+		auto start = std::chrono::steady_clock::now();
+
+		vector<int> h = { 1,2,3,4,5 };
+		vector<vector<int>> a = allArrangement(h);
+
+		auto end = std::chrono::steady_clock::now();
+		std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+		std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	}
+#pragma endregion
+
+
+}
 #pragma endregion
 
 int main() {
-	//test1();
-	//test2();
-	//test3();
-	//test5();
-	//test6();
-	//test7();
-	//test8();
-	//test9();
-	//test10();
-	//test11();
-	//test14();
-	test15();
+	//Leetcode::test1();
+	//Leetcode::test2();
+	//Leetcode::test3();
+	//Leetcode::test5();
+	//Leetcode::test6();
+	//Leetcode::test7();
+	//Leetcode::test8();
+	//Leetcode::test9();
+	//Leetcode::test10();
+	//Leetcode::test11();
+	//Leetcode::test14();
+	//Leetcode::test15();
+	//Leetcode::test17();
+	//Leetcode::test21();
+	Leetcode::test347();
+	//Other::test1();
 	return 0;
 }
 

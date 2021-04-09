@@ -8,6 +8,7 @@
 #include<assert.h>
 #include<regex>
 #include<iostream>
+#include< queue >
 #include"solutions.h"
 // The goal:
 // 1.recall clrs,
@@ -639,7 +640,6 @@ string longestCommonPrefix(vector<string>& strs) {
 #pragma endregion
 
 #pragma region 15. 3Sum
-
 #pragma region o(n2)
 // pass 315 / 318 tests, Time limit exceeded
 // basic idea: find result with three zeros, 1 zeros, and no zeros;
@@ -775,10 +775,172 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 }
 #pragma endregion
 
-
 #pragma endregion
 
 
+#pragma region 17. Letter Combinations of a Phone Number
+vector<string> newArrangement(vector<string>& origin, vector<string> target) {
+	if (origin.size() == 0) {
+		origin = target;return origin;
+	}
+	int len = origin.size();
+	for (int i = 0;i < len;i++) {
+		string tmp;
+		for (int j = 0;j < target.size();j++) {
+			if (j == 0) {
+				tmp = (origin[i]);
+				origin[i].append(target[j]);
+			}
+			else {
+				tmp.append(target[j]);
+				origin.push_back(tmp);
+				tmp.pop_back();
+			};
+		}
+	}
+	return origin;
+}
+vector<string> letterCombinations(string digits) {
+	unordered_map<string,vector<string>> map;
+	map["2"] = {"a","b","c"};
+	map["3"] = {"d","e","f"};
+	map["4"] = {"g","h","i"};
+	map["5"] = {"j","k","l"};
+	map["6"] = {"m","n","o"};
+	map["7"] = {"p","q","r","s"};
+	map["8"] = {"t","u","v"};
+	map["9"] = {"w","x","y","z"};
+	vector<string> result;
+	for (auto i = 0;i <digits.length();i++) {
+		newArrangement(result,map[digits.substr(i,1)]);
+	}
+	return result;
+}
+#pragma endregion
+
+#pragma region 19. Remove Nth Node From End of List
+
+ListNode* removeNthFromEnd(ListNode* head, int n) {
+	if (head->next == NULL)
+		return NULL;
+	ListNode* p1 = head;
+	ListNode* p2 = head;
+	ListNode* pre = NULL;
+	for (int i = 1;i < n;i++) {
+		p1 = p1->next;
+	}
+	while (p1->next != NULL) {
+		pre = p2;
+		p2 = p2->next;
+		p1 = p1->next;
+	}
+	if (p2 == head) {
+		head = p2->next;
+	}
+	else {
+		pre->next = p2->next;
+	}
+	delete(p2);
+	return head;
+}
+
+#pragma endregion
+
+#pragma region 20. Valid Parentheses
+bool isValid(string s) {
+	if (s.length() % 2 == 1)
+		return false;
+	unordered_map<string, string> left;left["{"] = "}";left["("] = ")";left["["] = "]";
+	unordered_map<string, string> right;
+	vector<string> stack;
+	for (int i = 0;i < s.length();i++) {
+		if (s.substr(i, 1) == "{") { stack.push_back("{"); continue; }
+		else if (s.substr(i, 1) == "(") { stack.push_back("("); continue; }
+		else if (s.substr(i, 1) == "[") { stack.push_back("["); continue; };
+		
+		if (stack.empty() || left[stack.back()] != s.substr(i, 1))
+			return false;
+		else {
+			stack.pop_back();
+		}
+	}
+	if (stack.size() != 0)
+		return false;
+	return true;
+}
+#pragma endregion
+
+#pragma region 21. Merge Two Sorted Lists
+// passed leetcode,but can not run on my own pc
+ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+	if (l1 == NULL)
+		return l2;
+	if (l2 == NULL)
+		return l1;
+	ListNode* head;
+	ListNode* p1;ListNode* p2;// p1 point to the return list 
+	if (l1->val <= l2->val) {
+		head = l1;p1 = l1;p2 = l2;
+	}
+	else {
+		head = l2;p1 = l2;p2 = l1;
+	}
+	ListNode* pre= p1;
+	while (p2 != NULL) {
+		if (p1->val < p2->val) {
+			pre = p1;
+			p1 = p1->next;
+			if (p1 != NULL) {
+				continue;
+			}
+			else {
+				pre->next = p2;
+				break;
+			}
+		}
+		else {
+			ListNode* tmp = p2->next;
+			p2->next = pre->next;
+			pre->next = p2;
+			pre = p2;
+			p2 = tmp;
+		}
+	}
+	return head;
+}
+#pragma endregion
+
+#pragma region 347. Top K Frequent Elements
+struct myGreater {// can not use class declaration
+	bool operator()(pair<int, int>l1, pair<int, int>l2)const {
+		return l1.second < l2.second;
+	}
+};
+vector<int> topKFrequent(vector<int>& nums, int k) {
+	unordered_map<int, int> m;
+	for (int i = 0;i < nums.size();i++) {
+		m[nums[i]] = 0;
+	}
+	for (int i = 0;i < nums.size();i++) {
+		m[nums[i]] ++;
+	}
+	priority_queue<pair<int, int>,vector<pair<int, int>>, myGreater> ps;
+	for (int i = 0;i < nums.size();i++) {
+		pair<int, int> tmp;
+		if (m[nums[i]] != -1) {
+			tmp.first = nums[i];tmp.second = m[nums[i]];
+			ps.push(tmp);
+			m[nums[i]] = -1;//means we have sorted
+		}
+	}
+	vector<int> result;
+	for (int i = 0;i < k;i++) {
+		pair<int, int>tmp = ps.top();ps.pop();
+		result.push_back(tmp.first);
+	}
+	return result;
+}
+#pragma endregion
 
 
 

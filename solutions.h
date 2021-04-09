@@ -27,3 +27,6 @@ int maxArea(vector<int>& height);
 string longestCommonPrefix(vector<string>& strs);
 vector<vector<int>> threeSum(vector<int>& nums);
 vector<vector<int>> twoSum2(vector<int>nums, int target);
+vector<string> letterCombinations(string digits);
+ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
+vector<int> topKFrequent(vector<int>& nums, int k);

@@ -21,10 +21,21 @@
     <ClCompile Include="solutions.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="other.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="solutions.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="other.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="problems.txt">
+      <Filter>源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>
