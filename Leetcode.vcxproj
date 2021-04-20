@@ -140,13 +140,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="newcode_oj练习.cpp" />
     <ClCompile Include="other.cpp" />
     <ClCompile Include="solutions.cpp" />
+    <ClCompile Include="tencent_2017暑期实习编程题.cpp" />
+    <ClCompile Include="tencent_2021暑期实习编程题3.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="newcode_oj练习.h" />
     <ClInclude Include="other.h" />
     <ClInclude Include="solutions.h" />
+    <ClInclude Include="tencent_2017暑期实习编程题.h" />
+    <ClInclude Include="tencent_2021暑期实习编程题3.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="problems.txt" />

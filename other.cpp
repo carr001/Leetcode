@@ -40,5 +40,17 @@ vector<vector<int>> allArrangement(vector<int> nums) {
 
 #pragma endregion
 
+#pragma region memcpy
+//void* memcpy(void* dst, const void* src, size_t len) {
+//	if (len > 0) {
+//		if (dst != NULL && src != NULL) {
+//			int i = 0;
+//			for (;i < len;i++) {
+//				*((char*)(dst)+i) = *((char*)(src)+i);
+//			}
+//		}
+//	}
+//}
+#pragma endregion
 
 

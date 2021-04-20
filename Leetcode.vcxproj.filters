@@ -24,12 +24,30 @@
     <ClCompile Include="other.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="newcode_oj练习.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tencent_2021暑期实习编程题3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tencent_2017暑期实习编程题.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="solutions.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="other.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="newcode_oj练习.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tencent_2021暑期实习编程题3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tencent_2017暑期实习编程题.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -30,3 +30,12 @@ vector<vector<int>> twoSum2(vector<int>nums, int target);
 vector<string> letterCombinations(string digits);
 ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
 vector<int> topKFrequent(vector<int>& nums, int k);
+ListNode* mergeKLists(vector<ListNode*>& lists);
+ListNode* swapPairs(ListNode* head);
+vector<int> findSubstring(string s, vector<string>& words);
+void nextPermutation(vector<int>& nums);
+int search(vector<int>& nums, int target);
+
+int firstMissingPositive(vector<int>& nums);
+int trap(vector<int>& height);
+vector<int> plusOne(vector<int>& digits);

@@ -9,6 +9,9 @@
 #include<regex>
 #include<iostream>
 #include< queue >
+#include<map>
+#include<set>
+#include<stack>
 #include"solutions.h"
 // The goal:
 // 1.recall clrs,
@@ -910,10 +913,592 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 }
 #pragma endregion
 
-#pragma region 347. Top K Frequent Elements
+#pragma region 23. Merge k Sorted Lists
+
+#pragma region find the minimum of each
+//O(nk) k = list.size()
+// we can use divide and conquer to reduce O(nk) to O(nlogk)
+ListNode* mergeKLists(vector<ListNode*>& lists) {
+	ListNode* head = NULL;
+	ListNode* p = NULL;
+	while (lists.size() != 0) {
+		ListNode** minNode = NULL;
+		for (int i = 0;i < lists.size();i++) {
+			if (lists[i] == NULL) {
+				lists.erase(lists.begin() + i);
+				i--;
+			}
+			else {
+				minNode = &lists[i];break;
+			}
+		}
+		for (int i = 0;i < lists.size();i++) {
+			ListNode* sub = lists[i];
+			if (sub == NULL) {
+				lists.erase(lists.begin() + i);
+				i--;continue;
+			}
+			if (sub->val < (*minNode)->val) {
+				minNode = &lists[i];
+			}
+		}
+		if (head == NULL) {
+			if (minNode == NULL)
+				break;
+			head = *minNode;
+			(*minNode) = (*minNode)->next;// detach this node from lists
+
+			p = head;p->next = NULL;continue;
+		}
+		if (minNode == NULL)
+			break;
+		else {
+			p->next = (*minNode);// add to result
+			(*minNode) = (*minNode)->next;// detach this node from lists
+
+			p = p->next;
+			p->next = NULL;
+		}
+	}
+	return head;
+}
+#pragma endregion
+
+#pragma region Devide and conquer
+
+#pragma endregion
+
+#pragma endregion
+
+#pragma region 24. Swap Nodes in Pairs
+bool swapKNodes(ListNode** subhead, ListNode* preNode, const int K) {
+	if (*subhead == NULL)
+		return false;
+	ListNode* l1= *subhead;
+	int count=0;
+	stack<ListNode*> s;
+	//ListNode* pre = preNode;
+	while (count!=K) {
+		if (count == 0) {
+			//pre = preNode;
+			s.push(l1);
+			count++;
+		}
+		else {
+			//pre = l1;
+			l1 = l1->next;
+			if (l1 == NULL)// the length of the list is less than K,so do nothing
+				return false;
+			s.push(l1);
+			count++;
+		}
+	}
+	ListNode* postNode = l1->next;
+	ListNode* tail = s.top(); s.pop();
+	ListNode* subHead = tail;
+	while (s.size() != 0) {
+		tail->next = s.top();s.pop();
+		tail = tail->next;
+	}tail->next = NULL;
+	if (preNode == NULL) {
+		(*subhead) = subHead;
+	}
+	else {
+		preNode->next = subHead;
+	}
+	if (postNode != NULL)
+		tail->next = postNode;
+	return true;
+}
+ListNode* swapPairs(ListNode* head) {
+	if (head == NULL)
+		return NULL;
+	ListNode* p=head;
+	ListNode* pre=NULL;
+	int result = true;
+	while (p!=NULL && result==true) {
+		if (pre == NULL) {
+			result = swapKNodes(&head, pre, 2);
+		}
+		else {
+			result = swapKNodes(&p, pre, 2);
+		}
+		if (p->next != NULL) {
+			pre = p;
+			p = p->next;
+		}
+		else {
+			return head;
+		}
+	}
+	return head;
+}
+#pragma endregion
+
+#pragma region 25. Reverse Nodes in k-Group
+ListNode* reverseKGroup(ListNode* head, int k) {
+	if (head == NULL)
+		return NULL;
+	ListNode* p = head;
+	ListNode* pre = NULL;
+	int result = true;
+	while (p != NULL && result == true) {
+		if (pre == NULL) {
+			result = swapKNodes(&head, pre, k);
+		}
+		else {
+			result = swapKNodes(&p, pre, k);
+		}
+		if (p->next != NULL) {
+			pre = p;
+			p = p->next;
+		}
+		else {
+			return head;
+		}
+	}
+	return head;
+}
+#pragma endregion
+
+#pragma region 26. Remove Duplicates from Sorted Array
+int removeDuplicates(vector<int>& nums) {
+	for (auto it = nums.begin();it != nums.end();) {
+		if (it + 1 != nums.end() && *(it + 1) == *(it)) {
+			nums.erase(it);
+		}
+		else {
+			it++;
+		}
+	}
+	return nums.size();
+}
+#pragma endregion
+
+#pragma region 27. Remove Element
+int removeElement(vector<int>& nums, int val) {
+	for (auto it = nums.begin();it != nums.end();) {
+		if (*(it) == val) {
+			nums.erase(it);
+		}
+		else {
+			it++;
+		}
+	}
+	return nums.size();
+}
+#pragma endregion
+
+#pragma region 28. Implement strStr()
+int strStr(string haystack, string needle) {
+	int len = needle.length();
+	for (auto it = haystack.begin();it <= (haystack.end() - len);) {
+		if (needle == haystack.substr(it - haystack.begin(), len)) {
+			return it - haystack.begin();
+		}
+		else {
+			it++;
+		}
+	}
+	return -1;
+}
+#pragma endregion
+
+#pragma region 30. Substring with Concatenation of All Words
+// exceed leetcode runing time
+bool subStrEqual(string s, unordered_multiset<string> ms) {
+	int len = ms.begin()->length();
+	int check_len = ms.size() * len;
+	for (int i = 0;i < check_len;i+=len) {
+		unordered_multiset<string>::iterator res = ms.find(s.substr(i, len));
+		if (res == ms.end()) {
+			return false;
+		}
+		else {
+			ms.erase(res);
+		}
+	}
+	if(ms.size()==0)
+		return true;
+	else {
+		return false;
+	}
+}
+vector<int> findSubstring(string s, vector<string>& words) {
+	if (s.length() < words[0].length() * words.size())
+		return {};
+	
+	unordered_multiset<string> ms;
+	for (int i = 0;i < words.size();i++) {
+		ms.insert(words[i]);
+	}
+	vector<int> result;
+	for (int i = 0;i < s.length();i++) {
+		if (subStrEqual(s.substr(i, s.length() - i), ms)) {
+			result.push_back(i); 
+		}
+		else {
+		}
+	}
+	return result;
+}
+#pragma endregion
+
+#pragma region 31. Next Permutation
+inline void swapIntVector(vector<int>::iterator it1, vector<int>::iterator it2) {
+	int tmp = *(it1);*(it1) = *(it2);*(it2) = tmp;
+}
+void nextPermutation(vector<int>& nums) {
+	if (nums.size() <= 1)
+		return;
+	auto it = nums.end() - 1;
+	vector<int>::iterator firstBigger;
+	while ((it) != (nums.begin()) && *(it - 1) >= *(it)) {
+		it--;
+	}
+	vector<int>::iterator ith;		vector<int>::iterator itt;
+	if (it != nums.begin()) {
+		int target = *(it - 1);
+		auto it2 = nums.end() - 1;
+		vector<int>::iterator firstBigger = nums.end();
+		while ((it2) != it - 1) {
+			if (firstBigger == nums.end()) {
+				if (*it2 > target) {
+					firstBigger = it2;
+				}
+			}
+			else {
+				if (*it2 > target && *it2 < *firstBigger) {
+					firstBigger = it2;
+				}
+			}
+			it2--;
+		}
+		swapIntVector(firstBigger, it - 1);
+		ith = it;
+	}
+	else {
+		ith = nums.begin();
+	}
+	itt = nums.end() - 1;
+	while (ith < itt) {
+		swapIntVector(ith, itt);
+		ith++;itt--;
+	}
+}
+#pragma endregion
+
+#pragma region 32. Longest Valid Parentheses
+int longestValidParentheses(string s) {
+	stack<string> st;
+	int max = 0;
+	int subLen = 0;auto it = s.begin();
+	while(it != s.end()) {
+		if (st.size() == 0) { subLen = 0; it++; }
+		if (s.substr(it - s.begin(), 1) == "(") {
+			if (subLen==0) {
+				st.push("(");it++;continue;
+			}
+			else {
+				while (!st.empty()) {
+					st.pop();
+				}
+			}
+		}
+		else {
+			 if( st.top() == "(")
+			{
+				 subLen += 2;st.pop();it++;
+				 while (s.substr(it-s.begin(),1) != "(") {
+					 subLen += 2;st.pop();it++;
+				 }
+				 continue;
+			}
+			if (subLen > max) {
+				max = subLen;
+			}
+		}
+	}
+	return max;
+}
+#pragma endregion
+
+#pragma region 33. Search in Rotated Sorted Array
+int search(vector<int>& nums, int target) {
+	if (nums[0] == target)
+		return 0;
+	if (nums[nums.size()-1] == target)
+		return nums.size() - 1;
+	if (nums[0] > target && nums[nums.size() - 1] < target)
+		return -1;
+	
+	auto first = nums.begin();
+	auto sec = nums.end()-1;
+	auto mid = first;
+	while (first!=sec) {
+		if ((sec - first) == 1) {
+			if (*sec == target)
+				return sec - nums.begin();
+			if (*first == target)
+				return first - nums.begin();
+			else {
+				return -1;
+			}
+		}
+		int half = (sec - first) / 2;
+		if (first + 1 != nums.end() && *first > target && *(first + 1) < *first) {
+			first = first + 1;
+			auto idx = lower_bound(first, sec, target);
+			if (idx == sec||*idx!=target)
+				return -1;
+			else {
+				return idx - nums.begin();
+			}
+		}
+		auto mid = first + half;
+		if (*mid == target) {
+			return mid - nums.begin();
+		}
+		if (*first < target && *mid > target) {
+			sec = mid;
+			auto idx = lower_bound(first, sec, target);
+			if (idx == sec)
+				return -1;
+			else {
+				return idx - nums.begin();
+			}
+		}
+		else if (*first < target && *mid < target) {
+			first = mid;continue;
+		}
+		else if (*first > target && *mid > target) {
+			first = mid;continue;
+		}
+		else if (*first > target && *mid < target) {
+			sec = mid;continue;
+		}
+	}
+}
+#pragma endregion
+
+#pragma region 34. Find First and Last Position of Element in Sorted Array
+vector<int> searchRange(vector<int>& nums, int target) {
+	auto lower = lower_bound(nums.begin(), nums.end(), target);
+	auto upper = upper_bound(nums.begin(), nums.end(), target);
+	vector<int> result;
+	if (lower != nums.end()) {
+		if (*lower == target) {
+			result.push_back(lower - nums.begin());
+			result.push_back(upper - nums.begin() - 1);
+			return result;
+		}
+	}
+	result.push_back(-1);
+	result.push_back(-1);
+	return result;
+}
+#pragma endregion
+
+#pragma region 35. Search Insert Position
+int searchInsert(vector<int>& nums, int target) {
+	auto lower = lower_bound(nums.begin(), nums.end(), target);
+	return lower - nums.begin();
+}
+#pragma endregion
+
+
+#pragma region 41. First Missing Positive
+int firstMissingPositive(vector<int>& nums) {
+	int len = nums.size();
+	for (int i = 0;i < len;i++) {
+		if (nums[i] < 0)
+			nums[i] = 0;
+	}
+	for (int i = 0;i < len;i++) {
+		if (abs(nums[i]) <= len && abs(nums[i]) > 0) {
+			if(nums[abs(nums[i]) - 1]>0)
+					nums[abs(nums[i])-1]= -nums[abs(nums[i])-1];
+			else if (nums[abs(nums[i]) - 1] == 0)
+				nums[abs(nums[i]) - 1] = -len-10;
+		}
+	}
+	int i = 0;
+	for(;i < len;i++)
+	{
+		if (nums[i] >= 0)
+			break;
+	}
+	return i + 1;
+}
+#pragma endregion
+
+#pragma region 42. Trapping Rain Water
+int findmax(vector<int>& height, int p1,int p2) {
+	if (p2 < p1)
+		return -1;
+	if (p2 == p1)
+		return p1;
+	int max = 0;int maxIdx = p1;
+	for (int i = p1;i <= p2;i++) {
+		if (height[i]>=max) {
+			max = height[i];
+			maxIdx = i;
+		}
+	}
+	return maxIdx;
+}
+int leftsubtrap(vector<int>& height,int p1,int p2) {
+	if (p1 == p2)
+		return 0;
+	int submaxIdx = p2;
+	while (submaxIdx > 0&&height[p2]== height[submaxIdx] ) {//search from the first different value 
+		submaxIdx--;
+	}
+	submaxIdx++;// note height[submaxIdx] == height[p2] here
+	if (submaxIdx == 0)// means all left values are equal
+		return 0;
+	int mid = findmax(height, p1, submaxIdx-1);
+	if (mid == 0 && submaxIdx == 1)
+		return 0;
+	int mi = min(height[mid], height[p2]);
+	int sum = 0;
+	for (int i = mid+1;i != submaxIdx;i++) {
+		sum += mi-height[i];
+	}
+	sum = leftsubtrap(height, p1, mid) + sum;
+	return sum;
+}
+int rightsubtrap(vector<int>& height, int p1, int p2) {
+	if (p1 == p2)
+		return 0;
+	int submaxIdx = p1;
+	while (submaxIdx < height.size() && height[p1] == height[submaxIdx]) {//search from the first different value 
+		submaxIdx++;
+	}
+	submaxIdx--;// note height[submaxIdx] == height[p1] here
+	if (submaxIdx == height.size())// means all right values are equal
+		return 0;
+	int mid = findmax(height, submaxIdx+1, p2);
+	if (mid == height.size()-1 && submaxIdx == height.size() - 2)
+		return 0;
+
+	int mi = min(height[mid], height[p1]);
+	int sum = 0;
+	for (int i = submaxIdx +1;i != mid;i++) {
+		sum += mi - height[i];
+	}
+	sum = rightsubtrap(height, mid, p2) + sum;
+	return sum;
+}
+
+int trap(vector<int>& height) {
+	int len = height.size();
+	if (len <= 2)
+		return 0;
+	int p1 = 0;int p2 = len - 1;
+	int mid = findmax(height, p1, p2);
+	int sum = leftsubtrap(height, p1, mid) + rightsubtrap(height,mid,p2);
+	return sum;
+}
+#pragma endregion
+
+#pragma region 48. Rotate Image
+void rotate(vector<vector<int>>& matrix) {
+
+}
+#pragma endregion
+
+#pragma region 58. Length of Last Word
+int lengthOfLastWord(string s) {
+	if (s.size() == 1 && s[0] == ' ')
+		return 0;
+	if (s.size() == 1 && s[0] != ' ')
+		return 1;
+	auto p1 = s.rbegin();
+	while (*p1 == ' ') {
+		p1++;
+	}
+	auto p2 = p1;
+	for (;p1 != s.rend();p1++) {
+		if (*p1 == ' ')
+			break;
+	}
+	return p1 - p2;
+}
+#pragma endregion
+
+#pragma region 66. Plus One
+vector<int> plusOne(vector<int>& digits) {
+	bool flow = true;
+	for (int i = digits.size() - 1;i > -1;i--) {
+		if (flow == true) {
+			digits[i] += 1;
+			if (digits[i] == 10) {
+				flow = true;
+				digits[i] = 0;
+			}
+			else {
+				flow = false;
+			}
+		}
+		else {
+			break;
+		}
+	}
+	if (flow)
+		digits.insert(digits.begin(), 1);
+	return digits;
+}
+#pragma endregion
+
+
+#pragma region 347. Top K Frequent Elements 
+#pragma region With RbTree
+//struct myLess {// can not use class declaration
+//	bool operator()(pair<int, int>l1, pair<int, int>l2)const {
+//		return l1.second < l2.second;
+//	}
+//};
+//vector<int> topKFrequent(vector<int>& nums, int k) {
+//	unordered_map<int, int> m;
+//	for (int i = 0;i < nums.size();i++) {
+//		m[nums[i]] = 0;
+//	}
+//	for (int i = 0;i < nums.size();i++) {
+//		m[nums[i]] ++;
+//	}
+//	multiset<pair<int, int>, myLess> ps;
+//	int min;
+//	for (int i = 0;i < nums.size();i++) {
+//		pair<int, int> tmp;
+//		if (m[nums[i]] != -1) {
+//			tmp.first = nums[i];tmp.second = m[nums[i]];
+//			m[nums[i]] = -1;// mark that we have put it in queue
+//			if (ps.size() >= k) {
+//				min = (*ps.begin()).second;
+//				if (tmp.second > min) {
+//					ps.erase(ps.begin());
+//					ps.insert(tmp);
+//				}
+//				else {/*do nothing*/ }
+//			}
+//			else {
+//				ps.insert(tmp);
+//			}
+//		}
+//	}
+//	vector<int> result;
+//	for (auto it = ps.begin();it != ps.end();it++) {
+//		result.push_back((*it).first);
+//	}
+//	return result;
+//}
+#pragma endregion
+
+#pragma region With Priority_queue
 struct myGreater {// can not use class declaration
 	bool operator()(pair<int, int>l1, pair<int, int>l2)const {
-		return l1.second < l2.second;
+		return l1.second > l2.second;
 	}
 };
 vector<int> topKFrequent(vector<int>& nums, int k) {
@@ -924,23 +1509,45 @@ vector<int> topKFrequent(vector<int>& nums, int k) {
 	for (int i = 0;i < nums.size();i++) {
 		m[nums[i]] ++;
 	}
-	priority_queue<pair<int, int>,vector<pair<int, int>>, myGreater> ps;
+	priority_queue<pair<int, int>, vector<pair<int, int>>,myGreater> ps;
+	int min;
 	for (int i = 0;i < nums.size();i++) {
 		pair<int, int> tmp;
 		if (m[nums[i]] != -1) {
 			tmp.first = nums[i];tmp.second = m[nums[i]];
-			ps.push(tmp);
-			m[nums[i]] = -1;//means we have sorted
+			m[nums[i]] = -1;// mark that we have put it in queue
+			if (ps.size() >= k) {
+				min = ps.top().second;
+				if (tmp.second > min) {
+					ps.pop();
+					ps.push(tmp);
+				}
+				else {/*do nothing*/ }
+			}
+			else {
+				ps.push(tmp);
+			}
 		}
 	}
 	vector<int> result;
-	for (int i = 0;i < k;i++) {
-		pair<int, int>tmp = ps.top();ps.pop();
+	for (int i = 0;i <k;i++) {
+		pair<int, int> tmp;tmp = ps.top();ps.pop();
 		result.push_back(tmp.first);
 	}
 	return result;
 }
 #pragma endregion
+#pragma endregion
+
+
+
+
+
+
+
+
+
+
 
 
 
