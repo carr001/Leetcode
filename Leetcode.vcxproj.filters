@@ -33,6 +33,9 @@
     <ClCompile Include="tencent_2017暑期实习编程题.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="jzoffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="solutions.h">
@@ -50,9 +53,15 @@
     <ClInclude Include="tencent_2017暑期实习编程题.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="jzoffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="problems.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="花的时间比较长的题_jzoffer.txt">
       <Filter>源文件</Filter>
     </Text>
   </ItemGroup>

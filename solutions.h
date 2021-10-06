@@ -38,4 +38,7 @@ int search(vector<int>& nums, int target);
 
 int firstMissingPositive(vector<int>& nums);
 int trap(vector<int>& height);
+int maxSubArray(vector<int>& nums);
+bool canJump(vector<int>& nums);
+vector<vector<int>> permute(vector<int>& nums);
 vector<int> plusOne(vector<int>& digits);

@@ -2,14 +2,13 @@
 #include <chrono>
 #include "solutions.h"
 #include "other.h"
+#include "jzoffer.h"
 #include "tencent_2017暑期实习编程题.h"
 #include "tencent_2021暑期实习编程题3.h"
 using namespace std;
 #pragma region Leetcode
-
-#pragma region 1.Two sum
 namespace Leetcode {
-
+#pragma region 1.Two sum
 
 int test1() {
 	printf("\n\n###############  start testing 1 Two sum  #############\n");
@@ -169,6 +168,7 @@ void test11() {
 	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
 }
 #pragma endregion
+
 #pragma region 14. Longest Common Prefix
 void test14() {
 	//cout<<"###############  start testing 11.Container With Most Water  #############"<<endl;
@@ -316,7 +316,7 @@ void test33() {
 	//cout<<"###############  start testing 33. Search in Rotated Sorted Array #############"<<endl;
 	auto start = std::chrono::steady_clock::now();
 
-	vector<int> h = { 5,1,3 };
+	vector<int> h = { 1,3 };
 	int res = search(h,0);
 
 	auto end = std::chrono::steady_clock::now();
@@ -352,6 +352,51 @@ void test42() {
 	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
 }
 #pragma endregion
+
+#pragma region 46. Permutations
+void test46() {
+	//cout<<"###############  start testing 46. Permutations #############"<<endl;
+	auto start = std::chrono::steady_clock::now();
+
+	vector<int> h = { 1,2,3 };
+	vector<vector<int>> res = permute(h);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+}
+#pragma endregion
+
+#pragma region 53. Maximum Subarray
+void test53() {
+	//cout<<"###############  start testing 53. Maximum Subarray #############"<<endl;
+	auto start = std::chrono::steady_clock::now();
+
+	vector<int> h = { -2,1,-3,4,-1,2,1,-5,4 };
+	//vector<int> h = { -2,1};
+	int res = maxSubArray(h);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+}
+#pragma endregion
+
+#pragma region 55.  Jump Game
+void test55() {
+	//cout<<"###############  start testing  55.  Jump Game #############"<<endl;
+	auto start = std::chrono::steady_clock::now();
+
+	vector<int> h = { 2,0 };
+	bool res = canJump(h);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+}
+#pragma endregion
+
+
 
 #pragma region 66. Plus One
 void test66() {
@@ -389,6 +434,346 @@ void test347() {
 #pragma endregion
 
 
+#pragma region jzoffer
+namespace jzoffer {
+#pragma region 04. 二维数组中的查找
+	int test4() {
+		printf("\n\n###############  start testing 04. 二维数组中的查找  #############\n");
+		auto start = std::chrono::steady_clock::now();
+
+		vector<vector<int>> input = {{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30}};
+		//vector<vector<int>> input = { {1},{2},{3},{4},{5} };
+		//vector<vector<int>> input = { {5},{6} };
+		//vector<vector<int>> input =  {{1,3,5,7,9},{2,4,6,8,10},{11,13,15,17,19},{12,14,16,18,20},{21,22,23,24,25}} ;
+		//vector<vector<int>> input ={{3, 3, 8, 13, 13, 18},{4, 5, 11, 13, 18, 20},{9, 9, 14, 15, 23, 23},{13, 18, 22, 22, 25, 27},{18, 22, 23, 28, 30, 33},{21, 25, 28, 30, 35, 35},{24, 25, 33, 36, 37, 40}};
+		bool output = findNumberIn2DArray(input,20);
+
+		auto end = std::chrono::steady_clock::now();
+		std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+		std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+		return 0;
+	}
+#pragma endregion
+#pragma region 05. 替换空格
+int test5() {
+	printf("\n\n###############  start testing 05. 替换空格  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	string input = {"We are happy." };
+	string output = replaceSpace(input);
+	cout << output[0] << ',' << output[1] << endl;
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+#pragma region 09. 用两个栈实现队列
+int test9() {
+	printf("\n\n###############  start testing 09. 用两个栈实现队列  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	CQueue* obj = new CQueue();
+	obj->appendTail(2);
+	obj->appendTail(3);
+	obj->appendTail(4);
+	int param_2 = obj->deleteHead();
+	 param_2 = obj->deleteHead();
+	 param_2 = obj->deleteHead();
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region 13. 机器人的运动范围
+int test13() {
+	printf("\n\n###############  start testing 13. 机器人的运动范围  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	string input = { "We are happy." };
+	int output = movingCount(3,2,17);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region 29. 顺时针打印矩阵
+int test29() {
+	printf("\n\n###############  start testing 29. 顺时针打印矩阵  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<vector<int>> input = { {1,2,3 }, { 4,5,6 }, { 7,8,9 }};
+	vector<vector<int>> input = { {1,2,3,4 }, { 5,6,7,8 }, { 9,10,11,12 }, { 13,14,15,16 }
+};
+	vector<int> output = spiralOrder(input);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region  31. 栈的压入弹出序列
+int test31() {
+	printf("\n\n###############  start testing  31. 栈的压入、弹出序列  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<vector<int>> input = { {1,2,3 }, { 4,5,6 }, { 7,8,9 }};
+	//vector<int> input = { 1,0 };
+	//vector<int> sec = { 1,0 };
+	vector<int> input = {2, 1,0 };
+	vector<int> sec = { 1,2,0 };
+	/*vector<int> input = { 1,2,3,4,5 };
+	vector<int> sec = { 4,5,3,1,2 };*/
+
+	bool output = validateStackSequences(input,sec);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region 34. 二叉树中和为某一值的路径
+int test34() {
+	printf("\n\n###############  start testing  34. 二叉树中和为某一值的路径  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<vector<int>> input = { {1,2,3 }, { 4,5,6 }, { 7,8,9 }};
+	//vector<int> input = { 1,0 };
+	//vector<int> sec = { 1,0 };
+	vector<int> input = { 2, 1,0 };
+	vector<int> sec = { 1,2,0 };
+	/*vector<int> input = { 1,2,3,4,5 };
+	vector<int> sec = { 4,5,3,1,2 };*/
+
+	bool output = validateStackSequences(input, sec);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+#pragma region 38. 字符串的排列
+int test38() {
+	printf("\n\n###############  start testing 38. 字符串的排列  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	string input = "kzfxxx";
+
+	vector<string> output = permutation(input);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+#pragma region 47. 礼物的最大价值
+int test47() {
+	printf("\n\n###############  start testing 47. 礼物的最大价值  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<vector<int>> input = { {1, 3, 1},{1, 5, 1},{4, 2, 1 }};
+	vector<vector<int>> input = { {5,0,1,1,2,1,0,1,3,6,3,0,7,3,3,3,1},{1,4,1,8,5,5,5,6,8,7,0,4,3,9,9,6,0},{2,8,3,3,1,6,1,4,9,0,9,2,3,3,3,8,4},{3,5,1,9,3,0,8,3,4,3,4,6,9,6,8,9,9},{3,0,7,4,6,6,4,6,8,8,9,3,8,3,9,3,4},{8,8,6,8,3,3,1,7,9,3,3,9,2,4,3,5,1},{7,1,0,4,7,8,4,6,4,2,1,3,7,8,3,5,4},{3,0,9,6,7,8,9,2,0,4,6,3,9,7,2,0,7},{8,0,8,2,6,4,4,0,9,3,8,4,0,4,7,0,4},{3,7,4,5,9,4,9,7,9,8,7,4,0,4,2,0,4},{5,9,0,1,9,1,5,9,5,5,3,4,6,9,8,5,6},{5,7,2,4,4,4,2,1,8,4,8,0,5,4,7,4,7},{9,5,8,6,4,4,3,9,8,1,1,8,7,7,3,6,9},{7,2,3,1,6,3,6,6,6,3,2,3,9,9,4,4,8} };
+
+	int output = maxValue(input);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region 51. 数组中的逆序对
+int test51() {
+	printf("\n\n###############  start testing 51. 数组中的逆序对  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<int> input = { 7,5,6,4 };
+	//vector<int> input = { 1,2,3,2,1 };
+	vector<int> input = { 1,2,1,2,1 };
+
+	int output = reversePairs(input);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+#pragma region 54. 二叉搜索树的第k大节点
+int test54() {
+	printf("\n\n###############  start testing 54. 二叉搜索树的第k大节点  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	TreeNode* root = (TreeNode*)malloc(sizeof(TreeNode));root->val = 3;
+	TreeNode* r1 = (TreeNode*)malloc(sizeof(TreeNode));r1->val = 1;r1->left = NULL;
+	TreeNode* r2 = (TreeNode*)malloc(sizeof(TreeNode));r2->val = 2;r2->left = NULL;r2->right = NULL;
+	TreeNode* r3 = (TreeNode*)malloc(sizeof(TreeNode));r3->val = 4;r3->left = NULL, r3->right = NULL;
+	root->left = r1;root->right = r3;r1->right = r2;
+
+	//vector<int> input = { 1,2,1,2,1 };
+
+	int output = kthLargest(root,1);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region 57 - II. 和为s的连续正数序列
+int test57() {
+	printf("\n\n###############  start testing 57 - II. 和为s的连续正数序列  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<int> input = { 1,2,1,2,1 };
+
+	vector<vector<int>> output = findContinuousSequence(10000);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region  58 - I. 翻转单词顺序
+int test58() {
+	printf("\n\n###############  start testing  58 - I. 翻转单词顺序  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<int> input = { 1,2,1,2,1 };
+	string input = "the sky is blue";
+
+	string output = reverseWords(input);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region  59 - I. 滑动窗口的最大值
+int test59() {
+	printf("\n\n###############  start testing  59 - I. 滑动窗口的最大值  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	vector<int> input = { 1,3,-1,-3,5,3,6,7 };
+	//vector<int> input = { 9,10,9,-7,-4,-8,2,-6};
+
+	vector<int> output = maxSlidingWindow(input,3);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region  59 - II. 队列的最大值
+int test592() {
+	printf("\n\n###############  start testing  59 - II. 队列的最大值  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	MaxQueue tmp = MaxQueue();
+	tmp.push_back(1);
+	tmp.push_back(2);
+	tmp.max_value();
+	tmp.pop_front();
+	tmp.max_value();
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region 62. 圆圈中最后剩下的数字
+int test62() {
+	printf("\n\n###############  start testing  62. 圆圈中最后剩下的数字  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<int> input = { 1,2,1,2,1 };
+
+	int output = lastRemaining(5,3);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+#pragma region  64. 求1+2++n
+int test64() {
+	printf("\n\n###############  start testing  64. 求1+2++n  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<int> input = { 1,2,1,2,1 };
+
+	int output = sumNums(5);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+
+#pragma region  65. 不用加减乘除做加法
+int test65() {
+	printf("\n\n###############  start testing  65. 不用加减乘除做加法  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<int> input = { 1,2,1,2,1 };
+
+	int output = add(1,2);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+
+
+#pragma region  66. 构建乘积数组
+int test66() {
+	printf("\n\n###############  start testing 66. 构建乘积数组  #############\n");
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<int> input = { 1,2,3,4,5 };
+	vector<int> input = { 7, 2, 2, 4, 2, 1, 8, 8, 9, 6, 8, 9, 6, 3, 2, 1 };
+
+	vector<int> output = constructArr(input);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+	return 0;
+}
+#pragma endregion
+}
+#pragma endregion
+
+
 #pragma region Other
 namespace Other{
 
@@ -411,6 +796,25 @@ namespace Other{
 #pragma endregion
 
 int main() {
+	//jzoffer::test4();
+	//jzoffer::test5();
+	//jzoffer::test9();
+	//jzoffer::test13();
+	//jzoffer::test29();
+	//jzoffer::test31();
+	//jzoffer::test38();
+	//jzoffer::test47();
+	//jzoffer::test51();
+	//jzoffer::test54();
+	//jzoffer::test57();
+	//jzoffer::test58();
+	//jzoffer::test59();
+	jzoffer::test592();
+	//jzoffer::test62();
+	//jzoffer::test64();
+	//jzoffer::test65();
+	//jzoffer::test66();
+
 	//Leetcode::test1();
 	//Leetcode::test2();
 	//Leetcode::test3();
@@ -432,7 +836,10 @@ int main() {
 	//Leetcode::test33();
 	//Leetcode::test41();
 	//Leetcode::test42();
-	Leetcode::test66();
+	Leetcode::test46();
+	//Leetcode::test53();
+	//Leetcode::test55();
+	//Leetcode::test66();
 	//Leetcode::test347();
 
 	//quiz_1();

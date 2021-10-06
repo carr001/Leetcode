@@ -1225,57 +1225,111 @@ int longestValidParentheses(string s) {
 
 #pragma region 33. Search in Rotated Sorted Array
 int search(vector<int>& nums, int target) {
-	if (nums[0] == target)
-		return 0;
-	if (nums[nums.size()-1] == target)
-		return nums.size() - 1;
-	if (nums[0] > target && nums[nums.size() - 1] < target)
+	if (nums.size() == 0)
 		return -1;
-	
-	auto first = nums.begin();
-	auto sec = nums.end()-1;
-	auto mid = first;
-	while (first!=sec) {
-		if ((sec - first) == 1) {
-			if (*sec == target)
-				return sec - nums.begin();
-			if (*first == target)
-				return first - nums.begin();
-			else {
+	if (nums.size() == 1) {
+		if (nums[0] == target)
+			return 0;
+		else {
+			return -1;
+		}
+	}
+	if(nums[0]<nums[nums.size()-1])
+	{
+		auto idx = lower_bound(nums.begin(), nums.end(), target);
+		if (idx != nums.end()&&*idx==target)
+			return idx - nums.begin();
+		else {
+			return -1;
+		}
+	}
+	if ( nums[0] < target) {
+		auto first = nums.begin();
+		auto sec = nums.end() - 1;
+		while (first>sec) {
+			if (first - sec <= 1) {
+				for (auto it = first;it <= sec;it++) {
+					if (*it == target) {
+						return it - nums.begin();
+					}
+				}
 				return -1;
 			}
-		}
-		int half = (sec - first) / 2;
-		if (first + 1 != nums.end() && *first > target && *(first + 1) < *first) {
-			first = first + 1;
-			auto idx = lower_bound(first, sec, target);
-			if (idx == sec||*idx!=target)
-				return -1;
+			auto half = (sec - first+1)/2;
+			auto mid = first + half;
+			if (*mid == target)
+				return mid - nums.begin();
+			if (*mid > target) {
+				auto idx = lower_bound(first, mid+1, target);
+				if (idx != nums.end() && *idx == target)
+					return idx - nums.begin();
+				else {
+					return -1;
+				}
+			}
 			else {
-				return idx - nums.begin();
+				first = mid;
 			}
 		}
-		auto mid = first + half;
-		if (*mid == target) {
-			return mid - nums.begin();
-		}
-		if (*first < target && *mid > target) {
-			sec = mid;
-			auto idx = lower_bound(first, sec, target);
-			if (idx == sec)
+	}
+	if (nums[0] <= target) {
+		auto first = nums.begin();
+		auto sec = nums.end() - 1;
+		while (first != sec) {
+			if (first - sec <= 1) {
+				for (auto it = first;it <= sec;it++) {
+					if (*it == target) {
+						return it - nums.begin();
+					}
+				}
 				return -1;
+			}
+			auto half = (sec - first + 1) / 2;
+			auto mid = first + half;
+			if (*mid == target)
+				return mid - nums.begin();
+			if (*mid > target) {
+				auto idx = lower_bound(first, mid + 1, target);
+				if (idx != nums.end() && *idx == target)
+					return idx - nums.begin();
+				else {
+					return -1;
+				}
+			}
 			else {
-				return idx - nums.begin();
+				first = mid;
 			}
 		}
-		else if (*first < target && *mid < target) {
-			first = mid;continue;
-		}
-		else if (*first > target && *mid > target) {
-			first = mid;continue;
-		}
-		else if (*first > target && *mid < target) {
-			sec = mid;continue;
+	}
+	else {
+		if (nums[nums.size() - 1] < target)
+			return -1;
+		auto first = nums.begin();
+		auto sec = nums.end() - 1;
+		while (first != sec) {
+			if (first - sec <= 1) {
+				for (auto it = first;it <= sec;it++) {
+					if (*it == target) {
+						return it - nums.begin();
+					}
+				}
+				return -1;
+			}
+			auto half = (sec - first + 1) / 2;
+			auto mid = first + half;
+			if (*mid == target)
+				return mid - nums.begin();
+			if (*mid < target) {
+				auto idx = lower_bound(mid ,sec+1, target);
+				if (idx != nums.end())
+					return idx - nums.begin();
+				else {
+					return -1;
+				}
+			}
+			else {
+				sec = mid;
+			}
 		}
 	}
 }
@@ -1402,9 +1456,141 @@ int trap(vector<int>& height) {
 }
 #pragma endregion
 
+#pragma region 46. È«ÅÅÁÐ
+//swapIntVector is already defined
+int subPermute(vector<int>& nums,int first,vector<vector<int>>&res) {
+	if (first == nums.size() - 1) 		{
+		res.push_back(nums);
+	}
+	int secd = first;
+	while (secd!=nums.size()) {
+		swapIntVector(nums.begin()+first,nums.begin()+secd);
+		subPermute(nums, first + 1, res);
+		swapIntVector(nums.begin() + first, nums.begin() + secd);
+		secd++;
+	}
+	return 0;
+}
+vector<vector<int>> permute(vector<int>& nums) {
+	if (nums.size() == 1)
+		return vector<vector<int>>{nums};
+	vector<vector<int>> res;
+	subPermute(nums,0,res);
+	return res;
+}
+#pragma endregion
+
+
 #pragma region 48. Rotate Image
 void rotate(vector<vector<int>>& matrix) {
 
+}
+#pragma endregion
+
+#pragma region 53. Maximum Subarray
+#pragma region my stupid method
+
+//int subMaxSubArray(vector<int>& nums, int p1) {
+//	if (p1 == nums.size())
+//		return 0;
+//	if (p1 == nums.size() - 1)
+//		return nums[p1];
+//	if (nums[p1] + nums[p1 + 1] > 0) {
+//		int consVal = nums[p1] + nums[p1 + 1];
+//		p1 += 2;
+//		while (p1<nums.size()-1) {
+//			if (nums[p1] + nums[p1 + 1] > 0) {
+//				consVal += nums[p1] + nums[p1 + 1];
+//				p1 += 2;
+//			}
+//			else {
+//				consVal += nums[p1];break;
+//			}
+//		}
+//		return max(consVal, subMaxSubArray(nums, p1));
+//	}
+//	else {
+//		return max(nums[p1], subMaxSubArray(nums, p1 + 2));
+//	}
+//}
+//int maxSubArray(vector<int>& nums) {
+//	if (nums.size() == 1)
+//		return nums[0];
+//	int p1 = 0;	int posval = 0;	int ngval = 0;
+//	int max = INT_MIN;
+//	while (p1 < nums.size()&&nums[p1] <= 0) {
+//		if (nums[p1] > max)
+//			max = nums[p1];
+//		p1++;
+//	}
+//	if (p1 == nums.size())// all less or equal 0
+//		return max;
+//	vector<int> compressed;
+//	while (p1<nums.size()) {
+//		while (p1 <= nums.size() - 1 && nums[p1] >= 0) {
+//			posval += nums[p1];
+//			p1++;
+//		}
+//		if (posval > 0) {
+//			compressed.push_back(posval);posval = 0;
+//		}
+//		while (p1 <= nums.size() - 1 && nums[p1] <= 0) {
+//			ngval += nums[p1];
+//			p1++;
+//		}
+//		if (ngval < 0) 			{
+//			compressed.push_back(ngval);ngval = 0;
+//		}
+//	}
+//	if (compressed[compressed.size() - 1] <= 0)
+//		compressed.pop_back();
+//	return subMaxSubArray(compressed,0);
+//}
+#pragma endregion
+
+int maxSubArray(vector<int>& nums) {
+	if (nums.size() == 1)
+		return nums[0];
+	int sum = 0;int res = nums[0];
+	for (int i = 0;i < nums.size();i++) {
+		sum += nums[i];
+		res = max(sum,res);
+		if (sum < 0)
+			sum = 0;
+	}
+	return res;
+}
+#pragma endregion
+
+#pragma region 55. Jump Game
+bool canJump(vector<int>& nums) {
+	if (nums.size() == 1 && nums[0] == 0)
+		return true;
+	int idx = 0;
+	int p1 = idx;
+	while (idx !=nums.size()) {
+		if (nums[idx] != 0)
+		{
+			idx++;
+		}
+		else {
+			int i = idx - 1;
+			for (;i >= 0;i--) {
+				int minsteps = idx - i + 1;
+				if (idx == nums.size() - 1) {
+					minsteps = idx - i ;
+				}
+				if (nums[i] >= minsteps) {
+					idx++;
+					p1 = idx;
+					break;
+				}
+			}
+			if (i == -1)
+				return false;
+		}
+	}
+	return true;
 }
 #pragma endregion
 
