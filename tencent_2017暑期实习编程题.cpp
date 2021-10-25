@@ -2,7 +2,7 @@
 #include<algorithm>
 #include<vector>
 using namespace std;
-int memo[1001][1001] = { 0 };// ¾²Ì¬Êý×é¾¡Á¿ÉùÃ÷³ÉÈ«¾ÖµÄ
+int memo[1001][1001] = { 0 };// ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½é¾¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½Öµï¿½
 int maxPar(string ss,int p1,int p2) {
     if (p1 > p2)
         return 0;
@@ -27,14 +27,14 @@ int quiz_1() {
     while (cin >> ss) {
         int len = ss.length();
         int p1 = 0, p2 = len;
-        /*int** memo = (int**)malloc(sizeof(int*) * len);// ¾¡Á¿ÉÙÓÃ£¬ÕâÑù×ÜÊÇ³ö´í£¬Ô­ÒòÎ´Öª
+        /*int** memo = (int**)malloc(sizeof(int*) * len);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½Î´Öª
         for (int i = 0;i < len;i++) {
             memo[i] = (int*)malloc(sizeof(int) * len);
             for (int j = 0;j < len;j++) {
                 memo[i][j] = 0;
             }
         }*/
-        for (int i = 0;i < 1001;i++) {// Ã¿´Î±ØÐëÒª½«ËùÓÐµÄÄÚ´æÉèÎª0
+        for (int i = 0;i < 1001;i++) {// Ã¿ï¿½Î±ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ú´ï¿½ï¿½ï¿½Îª0
             for (int j = 0;j < 1001;j++) {
                 memo[i][j] = 0;
             }

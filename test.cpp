@@ -3,8 +3,8 @@
 #include "solutions.h"
 #include "other.h"
 #include "jzoffer.h"
-#include "tencent_2017ÊîÆÚÊµÏ°±à³ÌÌâ.h"
-#include "tencent_2021ÊîÆÚÊµÏ°±à³ÌÌâ3.h"
+//#include "tencent_2017ï¿½ï¿½ï¿½ï¿½ÊµÏ°ï¿½ï¿½ï¿½ï¿½ï¿½.h"
+//#include "tencent_2021ï¿½ï¿½ï¿½ï¿½ÊµÏ°ï¿½ï¿½ï¿½ï¿½ï¿½3.h"
 using namespace std;
 #pragma region Leetcode
 namespace Leetcode {
@@ -382,6 +382,23 @@ void test53() {
 }
 #pragma endregion
 
+#pragma region 54. Spiral Matrix
+void test54() {
+	//cout<<"###############  start testing 54. Spiral Matrix #############"<<endl;
+	auto start = std::chrono::steady_clock::now();
+
+	//vector<vector<int>> h = { { 1,2,3},{4,5,6},{7,8,9} };
+	//vector<vector<int>> h = { {1,2,3,4} ,{5,6,7,8},{9,10,11,12} };
+	vector<vector<int>> h = { {1,2,3,4 }, { 5,6,7,8 }, { 9,10,11,12 }, { 13,14,15,16 }};
+	//vector<int> h = { -2,1};
+	vector<int> res = spiralOrder(h);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+}
+#pragma endregion
+
 #pragma region 55.  Jump Game
 void test55() {
 	//cout<<"###############  start testing  55.  Jump Game #############"<<endl;
@@ -429,6 +446,21 @@ void test347() {
 }
 #pragma endregion
 
+#pragma region 904. Fruit Into Baskets
+void test904() {
+	//cout<<"###############  start testing 347. Top K Frequent Elements #############"<<endl;
+	auto start = std::chrono::steady_clock::now();
+
+	vector<int> h = { 0,1,6,6,4,4,6};
+
+	int a = totalFruit(h);
+
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>(end - start);
+	std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+}
+#pragma endregion
+
 
 }
 #pragma endregion
@@ -436,9 +468,9 @@ void test347() {
 
 #pragma region jzoffer
 namespace jzoffer {
-#pragma region 04. ¶þÎ¬Êý×éÖÐµÄ²éÕÒ
+#pragma region 04. ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½
 	int test4() {
-		printf("\n\n###############  start testing 04. ¶þÎ¬Êý×éÖÐµÄ²éÕÒ  #############\n");
+		printf("\n\n###############  start testing 04. ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½  #############\n");
 		auto start = std::chrono::steady_clock::now();
 
 		vector<vector<int>> input = {{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30}};
@@ -454,9 +486,9 @@ namespace jzoffer {
 		return 0;
 	}
 #pragma endregion
-#pragma region 05. Ìæ»»¿Õ¸ñ
+#pragma region 05. ï¿½æ»»ï¿½Õ¸ï¿½
 int test5() {
-	printf("\n\n###############  start testing 05. Ìæ»»¿Õ¸ñ  #############\n");
+	printf("\n\n###############  start testing 05. ï¿½æ»»ï¿½Õ¸ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	string input = {"We are happy." };
@@ -469,9 +501,9 @@ int test5() {
 	return 0;
 }
 #pragma endregion
-#pragma region 09. ÓÃÁ½¸öÕ»ÊµÏÖ¶ÓÁÐ
+#pragma region 09. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ»Êµï¿½Ö¶ï¿½ï¿½ï¿½
 int test9() {
-	printf("\n\n###############  start testing 09. ÓÃÁ½¸öÕ»ÊµÏÖ¶ÓÁÐ  #############\n");
+	printf("\n\n###############  start testing 09. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ»Êµï¿½Ö¶ï¿½ï¿½ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	CQueue* obj = new CQueue();
@@ -489,9 +521,9 @@ int test9() {
 }
 #pragma endregion
 
-#pragma region 13. »úÆ÷ÈËµÄÔË¶¯·¶Î§
+#pragma region 13. ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ë¶ï¿½ï¿½ï¿½Î§
 int test13() {
-	printf("\n\n###############  start testing 13. »úÆ÷ÈËµÄÔË¶¯·¶Î§  #############\n");
+	printf("\n\n###############  start testing 13. ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ë¶ï¿½ï¿½ï¿½Î§  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	string input = { "We are happy." };
@@ -504,9 +536,9 @@ int test13() {
 }
 #pragma endregion
 
-#pragma region 29. Ë³Ê±Õë´òÓ¡¾ØÕó
+#pragma region 29. Ë³Ê±ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½
 int test29() {
-	printf("\n\n###############  start testing 29. Ë³Ê±Õë´òÓ¡¾ØÕó  #############\n");
+	printf("\n\n###############  start testing 29. Ë³Ê±ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<vector<int>> input = { {1,2,3 }, { 4,5,6 }, { 7,8,9 }};
@@ -521,9 +553,9 @@ int test29() {
 }
 #pragma endregion
 
-#pragma region  31. Õ»µÄÑ¹Èëµ¯³öÐòÁÐ
+#pragma region  31. Õ»ï¿½ï¿½Ñ¹ï¿½ëµ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int test31() {
-	printf("\n\n###############  start testing  31. Õ»µÄÑ¹Èë¡¢µ¯³öÐòÁÐ  #############\n");
+	printf("\n\n###############  start testing  31. Õ»ï¿½ï¿½Ñ¹ï¿½ë¡¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<vector<int>> input = { {1,2,3 }, { 4,5,6 }, { 7,8,9 }};
@@ -543,9 +575,9 @@ int test31() {
 }
 #pragma endregion
 
-#pragma region 34. ¶þ²æÊ÷ÖÐºÍÎªÄ³Ò»ÖµµÄÂ·¾¶
+#pragma region 34. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ÎªÄ³Ò»Öµï¿½ï¿½Â·ï¿½ï¿½
 int test34() {
-	printf("\n\n###############  start testing  34. ¶þ²æÊ÷ÖÐºÍÎªÄ³Ò»ÖµµÄÂ·¾¶  #############\n");
+	printf("\n\n###############  start testing  34. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ÎªÄ³Ò»Öµï¿½ï¿½Â·ï¿½ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<vector<int>> input = { {1,2,3 }, { 4,5,6 }, { 7,8,9 }};
@@ -564,9 +596,9 @@ int test34() {
 	return 0;
 }
 #pragma endregion
-#pragma region 38. ×Ö·û´®µÄÅÅÁÐ
+#pragma region 38. ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int test38() {
-	printf("\n\n###############  start testing 38. ×Ö·û´®µÄÅÅÁÐ  #############\n");
+	printf("\n\n###############  start testing 38. ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	string input = "kzfxxx";
@@ -579,9 +611,9 @@ int test38() {
 	return 0;
 }
 #pragma endregion
-#pragma region 47. ÀñÎïµÄ×î´ó¼ÛÖµ
+#pragma region 47. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 int test47() {
-	printf("\n\n###############  start testing 47. ÀñÎïµÄ×î´ó¼ÛÖµ  #############\n");
+	printf("\n\n###############  start testing 47. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<vector<int>> input = { {1, 3, 1},{1, 5, 1},{4, 2, 1 }};
@@ -596,9 +628,9 @@ int test47() {
 }
 #pragma endregion
 
-#pragma region 51. Êý×éÖÐµÄÄæÐò¶Ô
+#pragma region 51. ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int test51() {
-	printf("\n\n###############  start testing 51. Êý×éÖÐµÄÄæÐò¶Ô  #############\n");
+	printf("\n\n###############  start testing 51. ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<int> input = { 7,5,6,4 };
@@ -613,9 +645,9 @@ int test51() {
 	return 0;
 }
 #pragma endregion
-#pragma region 54. ¶þ²æËÑË÷Ê÷µÄµÚk´ó½Úµã
+#pragma region 54. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½kï¿½ï¿½Úµï¿½
 int test54() {
-	printf("\n\n###############  start testing 54. ¶þ²æËÑË÷Ê÷µÄµÚk´ó½Úµã  #############\n");
+	printf("\n\n###############  start testing 54. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½kï¿½ï¿½Úµï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	TreeNode* root = (TreeNode*)malloc(sizeof(TreeNode));root->val = 3;
@@ -635,9 +667,9 @@ int test54() {
 }
 #pragma endregion
 
-#pragma region 57 - II. ºÍÎªsµÄÁ¬ÐøÕýÊýÐòÁÐ
+#pragma region 57 - II. ï¿½ï¿½Îªsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int test57() {
-	printf("\n\n###############  start testing 57 - II. ºÍÎªsµÄÁ¬ÐøÕýÊýÐòÁÐ  #############\n");
+	printf("\n\n###############  start testing 57 - II. ï¿½ï¿½Îªsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<int> input = { 1,2,1,2,1 };
@@ -651,9 +683,9 @@ int test57() {
 }
 #pragma endregion
 
-#pragma region  58 - I. ·­×ªµ¥´ÊË³Ðò
+#pragma region  58 - I. ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½
 int test58() {
-	printf("\n\n###############  start testing  58 - I. ·­×ªµ¥´ÊË³Ðò  #############\n");
+	printf("\n\n###############  start testing  58 - I. ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<int> input = { 1,2,1,2,1 };
@@ -668,9 +700,9 @@ int test58() {
 }
 #pragma endregion
 
-#pragma region  59 - I. »¬¶¯´°¿ÚµÄ×î´óÖµ
+#pragma region  59 - I. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Öµ
 int test59() {
-	printf("\n\n###############  start testing  59 - I. »¬¶¯´°¿ÚµÄ×î´óÖµ  #############\n");
+	printf("\n\n###############  start testing  59 - I. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Öµ  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	vector<int> input = { 1,3,-1,-3,5,3,6,7 };
@@ -685,9 +717,9 @@ int test59() {
 }
 #pragma endregion
 
-#pragma region  59 - II. ¶ÓÁÐµÄ×î´óÖµ
+#pragma region  59 - II. ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Öµ
 int test592() {
-	printf("\n\n###############  start testing  59 - II. ¶ÓÁÐµÄ×î´óÖµ  #############\n");
+	printf("\n\n###############  start testing  59 - II. ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Öµ  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	MaxQueue tmp = MaxQueue();
@@ -704,9 +736,9 @@ int test592() {
 }
 #pragma endregion
 
-#pragma region 62. Ô²È¦ÖÐ×îºóÊ£ÏÂµÄÊý×Ö
+#pragma region 62. Ô²È¦ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½
 int test62() {
-	printf("\n\n###############  start testing  62. Ô²È¦ÖÐ×îºóÊ£ÏÂµÄÊý×Ö  #############\n");
+	printf("\n\n###############  start testing  62. Ô²È¦ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<int> input = { 1,2,1,2,1 };
@@ -720,9 +752,9 @@ int test62() {
 }
 #pragma endregion
 
-#pragma region  64. Çó1+2++n
+#pragma region  64. ï¿½ï¿½1+2++n
 int test64() {
-	printf("\n\n###############  start testing  64. Çó1+2++n  #############\n");
+	printf("\n\n###############  start testing  64. ï¿½ï¿½1+2++n  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<int> input = { 1,2,1,2,1 };
@@ -737,9 +769,9 @@ int test64() {
 #pragma endregion
 
 
-#pragma region  65. ²»ÓÃ¼Ó¼õ³Ë³ý×ö¼Ó·¨
+#pragma region  65. ï¿½ï¿½ï¿½Ã¼Ó¼ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½Ó·ï¿½
 int test65() {
-	printf("\n\n###############  start testing  65. ²»ÓÃ¼Ó¼õ³Ë³ý×ö¼Ó·¨  #############\n");
+	printf("\n\n###############  start testing  65. ï¿½ï¿½ï¿½Ã¼Ó¼ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½Ó·ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<int> input = { 1,2,1,2,1 };
@@ -754,9 +786,9 @@ int test65() {
 #pragma endregion
 
 
-#pragma region  66. ¹¹½¨³Ë»ýÊý×é
+#pragma region  66. ï¿½ï¿½ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
 int test66() {
-	printf("\n\n###############  start testing 66. ¹¹½¨³Ë»ýÊý×é  #############\n");
+	printf("\n\n###############  start testing 66. ï¿½ï¿½ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½  #############\n");
 	auto start = std::chrono::steady_clock::now();
 
 	//vector<int> input = { 1,2,3,4,5 };
@@ -809,7 +841,7 @@ int main() {
 	//jzoffer::test57();
 	//jzoffer::test58();
 	//jzoffer::test59();
-	jzoffer::test592();
+	//jzoffer::test592();
 	//jzoffer::test62();
 	//jzoffer::test64();
 	//jzoffer::test65();
@@ -836,11 +868,13 @@ int main() {
 	//Leetcode::test33();
 	//Leetcode::test41();
 	//Leetcode::test42();
-	Leetcode::test46();
+	//Leetcode::test46();
 	//Leetcode::test53();
+	//Leetcode::test54();
 	//Leetcode::test55();
 	//Leetcode::test66();
 	//Leetcode::test347();
+	Leetcode::test904();
 
 	//quiz_1();
 

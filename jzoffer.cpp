@@ -20,8 +20,8 @@
 using namespace std;
 namespace jzoffer{
 
-#pragma region  03. Êý×éÖÐÖØ¸´µÄÊý×Ö
-    // key£ºÅÐ¶Ïunordered_setÖÐÊÇ·ñ°üº¬Ä³ÔªËØµÄ·½·¨
+#pragma region  03. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    // keyï¿½ï¿½ï¿½Ð¶ï¿½unordered_setï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ä³Ôªï¿½ØµÄ·ï¿½ï¿½ï¿½
     int findRepeatNumber(vector<int>& nums) {
         unordered_set<int> usets;
         for (int i = 0;i < nums.size();i++) {
@@ -35,7 +35,7 @@ namespace jzoffer{
         return 0;
     }
 #pragma endregion
-#pragma region  04. ¶þÎ¬Êý×éÖÐµÄ²éÕÒ
+#pragma region  04. ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½
 #pragma region my stupid solution
     //pair<int,int> searchDiag(vector<vector<int>>& matrix, int target, int idx1_r, int idx1_c, int idx2_r, int idx2_c) {
     //    if (idx1_r == idx2_r|| idx1_c == idx2_c) {
@@ -163,7 +163,7 @@ namespace jzoffer{
     }
 #pragma endregion
 
-#pragma region 05. Ìæ»»¿Õ¸ñ
+#pragma region 05. ï¿½æ»»ï¿½Õ¸ï¿½
     string replaceSpace(string s) {
         int len = s.length();
         for (int i = 0;i != len;i++) {
@@ -178,7 +178,7 @@ namespace jzoffer{
     }
 #pragma endregion
 
-#pragma region 06. ´ÓÎ²µ½Í·´òÓ¡Á´±í
+#pragma region 06. ï¿½ï¿½Î²ï¿½ï¿½Í·ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½
 vector<int> reversePrint(ListNode* head) {
     /*if (head == NULL) {
         return vector<int>();
@@ -199,7 +199,7 @@ vector<int> reversePrint(ListNode* head) {
 }
 #pragma endregion
 
-#pragma region 07. ÖØ½¨¶þ²æÊ÷
+#pragma region 07. ï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     TreeNode* subBuildTree(vector<int>& preorder, vector<int>& inorder, int pp1, int pp2, int ip1, int ip2) {
         if (pp1 > pp2 || ip1 > ip2)
@@ -225,11 +225,11 @@ vector<int> reversePrint(ListNode* head) {
     }
 #pragma endregion
 
-#pragma region 09. ÓÃÁ½¸öÕ»ÊµÏÖ¶ÓÁÐ
+#pragma region 09. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ»Êµï¿½Ö¶ï¿½ï¿½ï¿½
 
 #pragma endregion
 
-#pragma region 10- I. ì³²¨ÄÇÆõÊýÁÐ
+#pragma region 10- I. ì³²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int fibArray[101] = {0};
 int fib(int n) {
     if (n == 0) {
@@ -246,15 +246,15 @@ int fib(int n) {
     fibArray[n] = res;
     return res ;
 }
-//ÏÂÃæÖ»ÊÊºÏf(0)=0,f(1)=1µÄÇé¿ö
+//ï¿½ï¿½ï¿½ï¿½Ö»ï¿½Êºï¿½f(0)=0,f(1)=1ï¿½ï¿½ï¿½ï¿½ï¿½
 //int fib(int n) {
 //    double num = pow((1 + sqrt(5)) / 2, n) - pow((1 - sqrt(5)) / 2, n);
 //    int res = num / sqrt(5);
 //    return res % 1000000007;
 //}
 #pragma endregion
-#pragma region 10- II. ÇàÍÜÌøÌ¨½×ÎÊÌâ
-//Í¬ì³²¨ÄÇÆõ£¬¹Ø¼üµÄÎÊÌâÊÇ£¬½«Çó½ânumWays(n)×ª»¯ÎªÇó½ânumWays(n-1)ÓënumWays(n-2)
+#pragma region 10- II. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//Í¬ì³²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½numWays(n)×ªï¿½ï¿½Îªï¿½ï¿½ï¿½numWays(n-1)ï¿½ï¿½numWays(n-2)
 int numWays(int n) {
     if (n <= 1) return 1;
     int dp[100 + 1];
@@ -269,7 +269,7 @@ int numWays(int n) {
 }
 #pragma endregion
 
-#pragma region 12. ¾ØÕóÖÐµÄÂ·¾¶
+#pragma region 12. ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Â·ï¿½ï¿½
 
 int rows, cols;
 bool dfs(vector<vector<char>>& board, string word, int i, int j, int k) {
@@ -294,7 +294,7 @@ bool exist(vector<vector<char>>& board, string word) {
 }
 #pragma endregion
 
-#pragma region 13. »úÆ÷ÈËµÄÔË¶¯·¶Î§
+#pragma region 13. ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ë¶ï¿½ï¿½ï¿½Î§
 int movingCount(int m, int n, int k) {
     vector<vector<bool>> visited(m, vector<bool>(n, 0));
     queue<vector<int>> queue;queue.push({ 0,0,0,0 });
@@ -314,7 +314,7 @@ int movingCount(int m, int n, int k) {
 #pragma endregion
 
 
-#pragma region 15. ¶þ½øÖÆÖÐ1µÄ¸öÊý
+#pragma region 15. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½Ä¸ï¿½ï¿½ï¿½
 int hammingWeight(uint32_t n) {
     int c = 0;
     while (n) {
@@ -325,7 +325,7 @@ int hammingWeight(uint32_t n) {
 }
 #pragma endregion
 
-#pragma region 16. ÊýÖµµÄÕûÊý´Î·½
+#pragma region 16. ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½
 double myPow(double x, int n) {
         bool minus = false;
         unsigned int k = n;
@@ -349,7 +349,7 @@ double myPow(double x, int n) {
 }
 #pragma endregion
 
-#pragma region 17. ´òÓ¡´Ó1µ½×î´óµÄnÎ»Êý
+#pragma region 17. ï¿½ï¿½Ó¡ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nÎ»ï¿½ï¿½
 vector<int> printNumbers(int n) {
     int i = 1;int b=10;
     vector<int> res;
@@ -363,7 +363,7 @@ vector<int> printNumbers(int n) {
 }
 #pragma endregion
 
-#pragma region 18. É¾³ýÁ´±íµÄ½Úµã
+#pragma region 18. É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½Úµï¿½
 ListNode* deleteNode(ListNode* head, int val) {
     if (head == NULL)
         return NULL;
@@ -390,7 +390,7 @@ ListNode* deleteNode(ListNode* head, int val) {
 
 #pragma endregion
 
-#pragma region  26. Ê÷µÄ×Ó½á¹¹
+#pragma region  26. ï¿½ï¿½ï¿½ï¿½ï¿½Ó½á¹¹
 bool isTreeContain(TreeNode* A, TreeNode* B) {
     if (B == NULL && A == NULL || B == NULL && A != NULL) {
         return true;
@@ -432,7 +432,7 @@ bool isSubStructure(TreeNode* A, TreeNode* B) {
 #pragma endregion
 
 
-#pragma region 27. ¶þ²æÊ÷µÄ¾µÏñ
+#pragma region 27. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
 TreeNode* mirrorTree(TreeNode* root) {
     if (root == NULL)
         return NULL;
@@ -444,7 +444,7 @@ TreeNode* mirrorTree(TreeNode* root) {
 }
 #pragma endregion
 
-#pragma region 28. ¶Ô³ÆµÄ¶þ²æÊ÷
+#pragma region 28. ï¿½Ô³ÆµÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½
 bool isSubTreeSymmetric(TreeNode* A, TreeNode* B) {
     if (B == NULL && A == NULL) {
         return true;
@@ -469,10 +469,10 @@ bool isSymmetric(TreeNode* root) {
 }
 #pragma endregion
 
-#pragma region 29. Ë³Ê±Õë´òÓ¡¾ØÕó
+#pragma region 29. Ë³Ê±ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½
 int count;
 pair<int, int> mGoLeft(vector<vector<int>>& matrix, vector<int>& res, pair<int, int> curr) {
-    // ±£Ö¤curr Ò»¶¨ÓÐÔªËØ
+    // ï¿½ï¿½Ö¤curr Ò»ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
     int cols = matrix[0].size();
     int rows = matrix.size();
     while (curr.second < cols && matrix[curr.first][curr.second] != INT_MIN) {
@@ -485,7 +485,7 @@ pair<int, int> mGoLeft(vector<vector<int>>& matrix, vector<int>& res, pair<int, 
     return curr;
 }
 pair<int, int> mGoDown(vector<vector<int>>& matrix, vector<int>& res, pair<int, int> curr) {
-    // ±£Ö¤curr Ò»¶¨ÓÐÔªËØ
+    // ï¿½ï¿½Ö¤curr Ò»ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
     int cols = matrix[0].size();
     int rows = matrix.size();
     while (curr.first < rows && matrix[curr.first][curr.second] != INT_MIN) {
@@ -498,7 +498,7 @@ pair<int, int> mGoDown(vector<vector<int>>& matrix, vector<int>& res, pair<int, 
     return curr;
 }
 pair<int, int> mGoRight(vector<vector<int>>& matrix, vector<int>& res, pair<int, int> curr) {
-    // ±£Ö¤curr Ò»¶¨ÓÐÔªËØ
+    // ï¿½ï¿½Ö¤curr Ò»ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
     int cols = matrix[0].size();
     int rows = matrix.size();
     while (curr.second > -1 && matrix[curr.first][curr.second] != INT_MIN) {
@@ -511,7 +511,7 @@ pair<int, int> mGoRight(vector<vector<int>>& matrix, vector<int>& res, pair<int,
     return curr;
 }
 pair<int, int> mGoUp(vector<vector<int>>& matrix, vector<int>& res, pair<int, int> curr) {
-    // ±£Ö¤curr Ò»¶¨ÓÐÔªËØ
+    // ï¿½ï¿½Ö¤curr Ò»ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
     int cols = matrix[0].size();
     int rows = matrix.size();
     while (curr.first > -1 && matrix[curr.first][curr.second] != INT_MIN) {
@@ -565,7 +565,7 @@ vector<int> spiralOrder(vector<vector<int>>& matrix) {
 }
 #pragma endregion
 
-#pragma region 31. Õ»µÄÑ¹Èëµ¯³öÐòÁÐ
+#pragma region 31. Õ»ï¿½ï¿½Ñ¹ï¿½ëµ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
     if (pushed.size() == 0)
         return true;
@@ -595,7 +595,7 @@ bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
 }
 #pragma endregion
 
-#pragma region 32 - I. ´ÓÉÏµ½ÏÂ´òÓ¡¶þ²æÊ÷
+#pragma region 32 - I. ï¿½ï¿½ï¿½Ïµï¿½ï¿½Â´ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 vector<int> levelOrder(TreeNode* root) {
     vector<int> res;
     if (root == NULL)
@@ -614,7 +614,7 @@ vector<int> levelOrder(TreeNode* root) {
 }
 #pragma endregion
     
-#pragma region 32 - II. ´ÓÉÏµ½ÏÂ´òÓ¡¶þ²æÊ÷ II
+#pragma region 32 - II. ï¿½ï¿½ï¿½Ïµï¿½ï¿½Â´ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ II
 vector<vector<int>> levelOrder2(TreeNode* root) {
     vector<vector<int>> res;
     if (root == NULL)
@@ -640,7 +640,7 @@ vector<vector<int>> levelOrder2(TreeNode* root) {
 } 
 #pragma endregion
 
-#pragma region 32 - III. ´ÓÉÏµ½ÏÂ´òÓ¡¶þ²æÊ÷ III
+#pragma region 32 - III. ï¿½ï¿½ï¿½Ïµï¿½ï¿½Â´ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ III
 vector<vector<int>> levelOrder3(TreeNode* root) {
     vector<vector<int>> res;
     if (root == NULL)
@@ -651,7 +651,7 @@ vector<vector<int>> levelOrder3(TreeNode* root) {
     while (!q.empty()) {
         int size = q.size();
         vector<int> subRes;
-        stack<TreeNode*>s;// ¿ÉÒÔ²»ÓÃÕ»£¬Ö±½Óreverse
+        stack<TreeNode*>s;// ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Õ»ï¿½ï¿½Ö±ï¿½ï¿½reverse
         while (size) {
             size--;
             TreeNode* t = q.front();q.pop();
@@ -676,7 +676,7 @@ vector<vector<int>> levelOrder3(TreeNode* root) {
     return res;
 }
 #pragma endregion
-#pragma region  33. ¶þ²æËÑË÷Ê÷µÄºóÐò±éÀúÐòÁÐ
+#pragma region  33. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //bool subVerifyPostorderLeft(vector<int>& postorder, int pp1, int pp2,int target) {
 //    assert(pp1 <= pp2);
 //    if (pp1 == pp2)
@@ -723,7 +723,7 @@ vector<vector<int>> levelOrder3(TreeNode* root) {
 //}
 #pragma endregion
 
-#pragma region 34. ¶þ²æÊ÷ÖÐºÍÎªÄ³Ò»ÖµµÄÂ·¾¶
+#pragma region 34. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ÎªÄ³Ò»Öµï¿½ï¿½Â·ï¿½ï¿½
 int pathSubSum(TreeNode* root,int target, vector<vector<int>>& res,vector<int>& subRes) {
     if (root->left == NULL && root->right == NULL) {
         if (root->val == target) {
@@ -756,7 +756,7 @@ vector<vector<int>> pathSum(TreeNode* root, int target) {
 #pragma endregion
 
 
-#pragma region 35. ¸´ÔÓÁ´±íµÄ¸´ÖÆ
+#pragma region 35. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
 Node* copyRandomList(Node* head) {
     if (head == NULL)
         return NULL;
@@ -789,11 +789,11 @@ Node* copyRandomList(Node* head) {
 }
 #pragma endregion
 
-#pragma region 36. ¶þ²æËÑË÷Ê÷ÓëË«ÏòÁ´±í
+#pragma region 36. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 #pragma endregion
 
-#pragma region 38. ×Ö·û´®µÄÅÅÁÐ
+#pragma region 38. ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // similar to allArrangement in other.cpp
 int subPermutation(vector<string>& res,char memo, unordered_set<string>& h) {
     int len = res.size();
@@ -836,7 +836,7 @@ vector<string> permutation(string s) {
 }
 #pragma endregion
 
-#pragma region 39. Êý×éÖÐ³öÏÖ´ÎÊý³¬¹ýÒ»°ëµÄÊý×Ö
+#pragma region 39. ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int majorityElement(vector<int>& nums) {
     if (nums.size() == 1)
         return nums[0];
@@ -854,7 +854,7 @@ int majorityElement(vector<int>& nums) {
 }
 #pragma endregion
 
-#pragma region 40. ×îÐ¡µÄk¸öÊý
+#pragma region 40. ï¿½ï¿½Ð¡ï¿½ï¿½kï¿½ï¿½ï¿½ï¿½
 //struct myGreater {// can not use class declaration
 //    bool operator()(int l1, int l2)const {
 //        return l1 > l2;
@@ -887,7 +887,7 @@ vector<int> getLeastNumbers(vector<int>& arr, int k) {
 }
 #pragma endregion
 
-#pragma region 45. °ÑÊý×éÅÅ³É×îÐ¡µÄÊý
+#pragma region 45. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
 bool mIsStringBigger(string s1,string s2) {
     int len = min(s1.length(), s2.length());
     for (int i = 0;i < len;i++) {
@@ -921,7 +921,7 @@ string minNumber(vector<int>& nums) {
 #pragma endregion
 
 
-#pragma region 47. ÀñÎïµÄ×î´ó¼ÛÖµ
+#pragma region 47. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 int memo47[201][201] = { 0 };
 int subMaxValue(vector<vector<int>>& grid, int row, int col) {
     if (row < 0 || col < 0)
@@ -945,7 +945,7 @@ int maxValue(vector<vector<int>>& grid) {
 #pragma endregion
 
 
-#pragma region 50. µÚÒ»¸öÖ»³öÏÖÒ»´ÎµÄ×Ö·û
+#pragma region 50. ï¿½ï¿½Ò»ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Îµï¿½ï¿½Ö·ï¿½
 char firstUniqChar(string s) {
     if (s.size() == 0)
         return ' ';
@@ -966,7 +966,7 @@ char firstUniqChar(string s) {
 }
 #pragma endregion
 
-#pragma region 51. Êý×éÖÐµÄÄæÐò¶Ô
+#pragma region 51. ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int count51 = 0;
 int mSwap(vector<int>& nums,int i,int j) {
     int tmp = nums[i];nums[i] = nums[j];nums[j] = tmp;return 0;
@@ -1040,7 +1040,7 @@ int reversePairs(vector<int>& nums) {
 }
 #pragma endregion
 
-#pragma region 52. Á½¸öÁ´±íµÄµÚÒ»¸ö¹«¹²½Úµã
+#pragma region 52. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
 int getListLen(ListNode* l) {
     ListNode* p1 = l;
     int res=0;
@@ -1080,7 +1080,7 @@ ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
     return NULL;
 }
 #pragma endregion
-#pragma region 53 - I. ÔÚÅÅÐòÊý×éÖÐ²éÕÒÊý×Ö I
+#pragma region 53 - I. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ I
 int search(vector<int>& nums, int target) {
     int count = 0;
     for (auto ele:nums) {
@@ -1091,7 +1091,7 @@ int search(vector<int>& nums, int target) {
 }
 #pragma endregion
 
-#pragma region II. 0¡«n-1ÖÐÈ±Ê§µÄÊý×Ö
+#pragma region II. 0ï¿½ï¿½n-1ï¿½ï¿½È±Ê§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int missingNumber(vector<int> & nums) {
     if (nums.size() == 0)
         return -1;
@@ -1119,7 +1119,7 @@ int missingNumber(vector<int> & nums) {
 }
 #pragma endregion
 
-#pragma region 54. ¶þ²æËÑË÷Ê÷µÄµÚk´ó½Úµã
+#pragma region 54. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½kï¿½ï¿½Úµï¿½
 int inOrderTree(TreeNode* root, int& k) {
     if (root == NULL)
         return -1;
@@ -1146,7 +1146,7 @@ int kthLargest(TreeNode* root, int k) {
 }
 #pragma endregion
 
-#pragma region I. ¶þ²æÊ÷µÄÉî¶È
+#pragma region I. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int maxDepth(TreeNode* root) {
     if (root == NULL)
         return 0;
@@ -1154,7 +1154,7 @@ int maxDepth(TreeNode* root) {
 }
 #pragma endregion
 
-#pragma region 55 - II. Æ½ºâ¶þ²æÊ÷
+#pragma region 55 - II. Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #pragma region bad
 // this computed depth multiple times
 //bool isBalanced(TreeNode* root) {
@@ -1196,7 +1196,7 @@ bool isBalanced(TreeNode* root) {
 }
 #pragma endregion
 
-#pragma region 57. ºÍÎªsµÄÁ½¸öÊý×Ö
+#pragma region 57. ï¿½ï¿½Îªsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 vector<int> twoSum(vector<int>& nums, int target) {
     int p1 = 0;
     int p2 = nums.size() - 1;
@@ -1222,7 +1222,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
 }
 #pragma endregion
 
-#pragma region 57 - II. ºÍÎªsµÄÁ¬ÐøÕýÊýÐòÁÐ
+#pragma region 57 - II. ï¿½ï¿½Îªsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 inline bool haveFloat(float num) {
     return (num - int(num)) != 0;
 }
@@ -1250,7 +1250,7 @@ vector<vector<int>> findContinuousSequence(int target) {
 }
 #pragma endregion
 
-#pragma region 58 - I. ·­×ªµ¥´ÊË³Ðò
+#pragma region 58 - I. ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½
 string reverseWords(string s) {
     if (s == "")
         return "";
@@ -1275,7 +1275,7 @@ string reverseWords(string s) {
 }
 #pragma endregion
 
-#pragma region 58 - II. ×óÐý×ª×Ö·û´®
+#pragma region 58 - II. ï¿½ï¿½ï¿½ï¿½×ªï¿½Ö·ï¿½ï¿½ï¿½
 string reverseLeftWords(string s, int n) {
     string tmp = s.substr(0,n);
     string tmp2 = s.substr(n,s.size()-n);
@@ -1284,7 +1284,7 @@ string reverseLeftWords(string s, int n) {
 }
 #pragma endregion
 
-#pragma region 59 - I. »¬¶¯´°¿ÚµÄ×î´óÖµ
+#pragma region 59 - I. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Öµ
 int help59[100000] = { 0 };
 vector<int> maxSlidingWindow(vector<int>& nums, int k) {
     if (k <= 1)
@@ -1332,7 +1332,7 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
 }
 #pragma endregion
 
-#pragma region 61. ÆË¿ËÅÆÖÐµÄË³×Ó
+#pragma region 61. ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ë³ï¿½ï¿½
 bool isStraight(vector<int>& nums) {
     for (int i = 0;i < nums.size();i++) {
         if (nums[i] == 'A')
@@ -1347,7 +1347,7 @@ bool isStraight(vector<int>& nums) {
             nums[i] = 13;
         }
     }
-    sort(nums.begin(),nums.end());// Èç¹ûÊ¹ÓÃhash£¬ÄÇÃ´Ôö¼Ó¿Õ¼ä¸´ÔÓ¶È£¬½µµÍÊ±¼ä¸´ÔÓ¶È
+    sort(nums.begin(),nums.end());// ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½hashï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½Ó¿Õ¼ä¸´ï¿½Ó¶È£ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä¸´ï¿½Ó¶ï¿½
     int i = 0;int zeroCount = 0;int pre=-1;
     int mi = INT_MAX;int ma = INT_MIN;
     while (i!=nums.size()) {
@@ -1364,7 +1364,7 @@ bool isStraight(vector<int>& nums) {
 }
 #pragma endregion
 
-#pragma region 62. Ô²È¦ÖÐ×îºóÊ£ÏÂµÄÊý×Ö
+#pragma region 62. Ô²È¦ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½
 #pragma region bad
 // take too many time
 //int lastRemaining(int n, int m) {
@@ -1402,7 +1402,7 @@ int lastRemaining(int n, int m) {
 }
 #pragma endregion
 
-#pragma region 63. ¹ÉÆ±µÄ×î´óÀûÈó
+#pragma region 63. ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //int subMaxProfit() {
 //}
 //int maxProfit(vector<int>& prices) {
@@ -1441,7 +1441,7 @@ int maxProfit(vector<int>& prices) {
 #pragma endregion
 
 
-#pragma region 64. Çó1+2++n
+#pragma region 64. ï¿½ï¿½1+2++n
 int sumNums(int n) {
     n&&(n = n + sumNums(n - 1));
     return n;
@@ -1449,7 +1449,7 @@ int sumNums(int n) {
 #pragma endregion
 
 
-#pragma region 65. ²»ÓÃ¼Ó¼õ³Ë³ý×ö¼Ó·¨
+#pragma region 65. ï¿½ï¿½ï¿½Ã¼Ó¼ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½Ó·ï¿½
 int add(int a, int b) {
     int mask = 1;
     //int stop = 0x80000000;
@@ -1482,7 +1482,7 @@ int add(int a, int b) {
 }
 #pragma endregion
 
-#pragma region 66. ¹¹½¨³Ë»ýÊý×é
+#pragma region 66. ï¿½ï¿½ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
 vector<int> constructArr(vector<int>& a) {
     if (a.size() == 0)
         return vector<int>();
@@ -1525,7 +1525,7 @@ vector<int> constructArr(vector<int>& a) {
 #pragma endregion
 
 
-#pragma region 68 - I. ¶þ²æËÑË÷Ê÷µÄ×î½ü¹«¹²×æÏÈ
+#pragma region 68 - I. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 TreeNode* lowestCommonAncestor1(TreeNode* root, TreeNode* p, TreeNode* q) {
     if (root == NULL)
         return NULL;
@@ -1543,9 +1543,9 @@ TreeNode* lowestCommonAncestor1(TreeNode* root, TreeNode* p, TreeNode* q) {
 }
 #pragma endregion
 
-#pragma region 68 - II. ¶þ²æÊ÷µÄ×î½ü¹«¹²×æÏÈ
+#pragma region 68 - II. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 pair<TreeNode*, int> subLowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q,int K) {
-    // µÚ¶þ¸ö·µ»ØÖµ±íÊ¾ÔÚrootÎª¸ùµÄÄ¿Â¼ÏÂÕÒµ½ÁË¼¸¸ö, ²ÎÊýK±íÊ¾ÐèÒªÕÒ¼¸¸ö
+    // ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ê¾ï¿½ï¿½rootÎªï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½Òµï¿½ï¿½Ë¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Kï¿½ï¿½Ê¾ï¿½ï¿½Òªï¿½Ò¼ï¿½ï¿½ï¿½
     if (root == NULL) {
         return pair < TreeNode*, int>{NULL, 0};
     }
@@ -1553,14 +1553,14 @@ pair<TreeNode*, int> subLowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNo
         if (root == p || root == q) {
             pair < TreeNode*, int> res = subLowestCommonAncestor(root->left, p, q, 1);
             if (res.second == 1)
-                return pair < TreeNode*, int>{root, 2};//ÒÔrootÎª¸ùµÄ×ÓÊ÷ÕÒµ½2¸ö
+                return pair < TreeNode*, int>{root, 2};//ï¿½ï¿½rootÎªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½2ï¿½ï¿½
             if (res.second == 0) {
                 pair < TreeNode*, int> res2= subLowestCommonAncestor(root->right, p, q, 1);
                 if (res2.second == 1) {
-                    return pair < TreeNode*, int>{root, 2};//ÒÔrootÎª¸ùµÄ×ÓÊ÷ÕÒµ½2¸ö
+                    return pair < TreeNode*, int>{root, 2};//ï¿½ï¿½rootÎªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½2ï¿½ï¿½
                 }
                 else {
-                    return pair < TreeNode*, int>{NULL, 1};//ÒÔrootÎª¸ùµÄ×ÓÊ÷Ö»ÕÒµ½1¸ö
+                    return pair < TreeNode*, int>{NULL, 1};//ï¿½ï¿½rootÎªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½Òµï¿½1ï¿½ï¿½
                 }
             }
         }

@@ -42,3 +42,9 @@ int maxSubArray(vector<int>& nums);
 bool canJump(vector<int>& nums);
 vector<vector<int>> permute(vector<int>& nums);
 vector<int> plusOne(vector<int>& digits);
+vector<int> spiralOrder(vector<vector<int>>& matrix);
+
+
+
+
+int totalFruit(vector<int>& fruits);

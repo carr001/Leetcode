@@ -1456,7 +1456,7 @@ int trap(vector<int>& height) {
 }
 #pragma endregion
 
-#pragma region 46. È«ÅÅÁÐ
+#pragma region 46. È«ï¿½ï¿½ï¿½ï¿½
 //swapIntVector is already defined
 int subPermute(vector<int>& nums,int first,vector<vector<int>>&res) {
 	if (first == nums.size() - 1) 		{
@@ -1561,6 +1561,84 @@ int maxSubArray(vector<int>& nums) {
 	return res;
 }
 #pragma endregion
+
+#pragma region 54. Spiral Matrix
+vector<int> readHorizontal(vector<vector<int>>& matrix, pair<int, int> start, pair<int, int> end) {
+	assert(start.first==end.first);
+	vector<int> result;
+	if (start.second > end.second)
+		return result;
+	for (int i = start.second;i <= end.second;i++) {
+		result.push_back(matrix[start.first][i]);
+	}
+	return result;
+}
+vector<int> readHorizontalInverse(vector<vector<int>>& matrix, pair<int, int> start, pair<int, int> end) {
+	assert(start.first == end.first);
+	vector<int> result;
+	if (start.second > end.second)
+		return result;
+	for (int i = end.second;i >= start.second;i--) {
+		result.push_back(matrix[start.first][i]);
+	}
+	return result;
+}
+vector<int> readVertical(vector<vector<int>>& matrix, pair<int, int> start, pair<int, int> end) {
+	assert(start.second == end.second);
+	vector<int> result;
+	if (start.first > end.first)
+		return result;
+	for (int i = start.first;i <= end.first;i++) {
+		result.push_back(matrix[i][start.second]);
+	}
+	return result;
+}
+vector<int> readVerticalInverse(vector<vector<int>>& matrix, pair<int, int> start, pair<int, int> end) {
+	assert(start.second == end.second);
+	vector<int> result;
+	if (start.first > end.first)
+		return result;
+	for (int i = end.first;i >= start.first;i--) {
+		result.push_back(matrix[i][start.second]);
+	}
+	return result;
+}
+
+vector<int> readCircle(vector<vector<int>>& matrix,pair<int,int> start,pair<int,int> end) {
+	vector<int> result;
+	if (start.first == end.first) {
+		result = readHorizontal(matrix,start,end);
+	} else if(start.second == end.second) {
+		result = readVertical(matrix, start, end);
+	} else {
+		result = readHorizontal(matrix, start, pair<int, int>(start.first, end.second));
+		auto tmp1 = readVertical(matrix, pair<int,int>(start.first+1, end.second), end);
+		auto tmp2 = readHorizontalInverse(matrix, pair<int, int>(end.first, start.second), pair<int, int>(end.first, end.second-1));
+		auto tmp3 = readVerticalInverse(matrix, pair<int, int>(start.first+1, start.second), pair<int, int>(end.first-1, start.second));
+
+		result.insert(result.end(), tmp1.begin(), tmp1.end());
+		result.insert(result.end(), tmp2.begin(), tmp2.end());
+		result.insert(result.end(), tmp3.begin(), tmp3.end());
+	}
+	return result;
+}
+vector<int> spiralOrder(vector<vector<int>>& matrix) {
+	vector<int> result;
+	if (matrix.size() == 0 || matrix[0].size() == 0)
+		return result;
+	pair<int, int> start(0, 0);
+	pair<int, int> end(matrix.size()-1, matrix[0].size()-1);
+	while (start.first<=end.first&&start.second<=end.second) {
+		auto tmp = readCircle(matrix, start, end);
+		start.first++;start.second++;end.first--;end.second--;
+		result.insert(result.end(), tmp.begin(), tmp.end());
+	}
+	return result;
+}
+
+#pragma endregion
+
+
 
 #pragma region 55. Jump Game
 bool canJump(vector<int>& nums) {
@@ -1727,6 +1805,45 @@ vector<int> topKFrequent(vector<int>& nums, int k) {
 
 
 
+#pragma region 904. Fruit Into Baskets
+bool canbePick(int fruit_tyte,int& bucket_type1,int& bucket_type2) {
+	if (bucket_type1 != bucket_type2) {
+		return (fruit_tyte == bucket_type1 || fruit_tyte == bucket_type2);
+	}
+	else {
+		bucket_type1 = fruit_tyte;
+	}
+	return true;
+}
+int totalFruit(vector<int>& fruits) {
+	if (fruits.size() <= 2)
+		return fruits.size();
+	int result=2;
+	int bucket_type1 = fruits[0];
+	int bucket_type2 = fruits[1];
+	int local_largest = result;
+	int nearest_first_idx = 1;
+	for (int i = 2;i < fruits.size();i++) {
+		if (canbePick(fruits[i], bucket_type1, bucket_type2)) {
+			local_largest++;
+			if (fruits[i] != fruits[i - 1])
+				nearest_first_idx = i;
+		} else {
+			if (local_largest > result) {
+				result = local_largest;
+			}
+			bucket_type1 = fruits[nearest_first_idx];
+			bucket_type2 = fruits[i];
+			local_largest = i-nearest_first_idx+1;
+			nearest_first_idx = i;
+		}
+	}
+	if (local_largest > result)
+		result = local_largest;
+	return result;
+}
+
+#pragma endregion
 
 
 

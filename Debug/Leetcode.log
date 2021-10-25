@@ -1,2 +1,42 @@
-﻿  test.cpp
-  Leetcode.vcxproj -> E:\Program Files\Visual Studio 2019 preject\test\Leetcode\Leetcode\Debug\Leetcode.exe
+﻿  solutions.cpp
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(31,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(280,44): warning C4018: “<=”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(283,14): warning C4018: “<=”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(327,14): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(351,17): warning C4018: “<=”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(356,14): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(395,10): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(404,12): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(413,39): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(584,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(596,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(623,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(680,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(715,15): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(719,26): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(741,29): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(742,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(746,15): warning C4018: “>=”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(747,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(754,21): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(768,21): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(792,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(817,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(859,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(926,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(935,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1019,28): warning C4805: “==”: 在操作中将类型“int”与类型“bool”混合不安全
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1045,32): warning C4805: “==”: 在操作中将类型“int”与类型“bool”混合不安全
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1132,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1136,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1429,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1555,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1770,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1773,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1778,19): warning C4018: “<”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1783,18): warning C4018: “>=”: 有符号/无符号不匹配
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1826,19): warning C4018: “<”: 有符号/无符号不匹配
+  test.cpp
+  正在生成代码...
+E:\笔记本文件\Leetcode\Leetcode\solutions.cpp(1335): warning C4715: “search”: 不是所有的控件路径都返回值
+  Leetcode.vcxproj -> E:\笔记本文件\Leetcode\Leetcode\Debug\Leetcode.exe
